@@ -59,72 +59,72 @@ const DataEntry = () => {
             validationSchema={validationSchema}>
             <Form>
                 <div>
-                    <label htmlFor='legend'>legend</label>
+                    <label htmlFor='legend'>Legend</label>
                     <Field type='text' id='legend' name='legend' />
                     <ErrorMessage name='legend' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl1'>time stamp - 1</label>
+                    <label htmlFor='tl1'>Time Stamp-1</label>
                     <Field type='number' id='tl1' name='tl1' />
                     <ErrorMessage name='tl1' />
                 </div>
 
                 <div>
-                    <label htmlFor='d1'>data - 1</label>
+                    <label htmlFor='d1'>Data Entry - 1</label>
                     <Field type='number' id='d1' name='d1' />
                     <ErrorMessage name='d1' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl2'>time stamp - 2</label>
+                    <label htmlFor='tl2'>Time Stamp-2</label>
                     <Field type='number' id='tl2' name='tl2' />
                     <ErrorMessage name='tl2' />
                 </div>
 
                 <div>
-                    <label htmlFor='d2'>data - 2</label>
+                    <label htmlFor='d2'>Data Entry - 2</label>
                     <Field type='number' id='d2' name='d2' />
                     <ErrorMessage name='d2' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl3'>time stamp - 3</label>
+                    <label htmlFor='tl3'>Time Stamp-3</label>
                     <Field type='number' id='tl3' name='tl3' />
                     <ErrorMessage name='tl3' />
                 </div>
 
                 <div>
-                    <label htmlFor='d3'>data - 3</label>
+                    <label htmlFor='d3'>Data Entry - 3</label>
                     <Field type='number' id='d3' name='d3' />
                     <ErrorMessage name='d3' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl4'>time stamp - 4</label>
+                    <label htmlFor='tl4'>Time Stamp-4</label>
                     <Field type='number' id='tl4' name='tl4' />
                     <ErrorMessage name='tl4' />
                 </div>
 
                 <div>
-                    <label htmlFor='d4'>data - 4</label>
+                    <label htmlFor='d4'>Data Entry - 4</label>
                     <Field type='number' id='d4' name='d4' />
                     <ErrorMessage name='d4' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl5'>time stamp - 5</label>
+                    <label htmlFor='tl5'>Time Stamp-5</label>
                     <Field type='number' id='tl5' name='tl5' />
                     <ErrorMessage name='tl5' />
                 </div>
 
                 <div>
-                    <label htmlFor='d5'>data - 5</label>
+                    <label htmlFor='d5'>Data Entry - 5</label>
                     <Field type='number' id='d5' name='d5' />
                     <ErrorMessage name='d5' />
                 </div>
 
-                <button type='submit'>SignUp</button>
+                <button type='submit'>SUBMIT</button>
             </Form>
         </Formik >
     );

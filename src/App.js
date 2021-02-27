@@ -23,7 +23,8 @@ class App extends Component {
     return (
       // <DoughnutChart timeLine={timeline} dataSet={data} legend="Death per year in millions" />
       //<BarChart timeLine ={timeline} dataSet={data} legend="death in millions per months" />
-      <DataEntry />
+      //<DataEntry />
+      <SignUp />
     );
   }
 }
