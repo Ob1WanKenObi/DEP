@@ -81,7 +81,7 @@ const SignUp = () => {
                     <Field type='password' id='confirmPassword' name='confirmPassword' />
                     <ErrorMessage name='confirmPassword' />
                 </div>
-                <button type='submit'>SignUp</button>
+                <button type='submit'>SIGN UP</button>
             </Form>
         </Formik >
     );
