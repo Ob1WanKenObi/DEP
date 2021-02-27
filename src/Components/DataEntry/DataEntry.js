@@ -14,16 +14,17 @@ const initialValues = {
     d4: '',
     tl5: '',
     d5: '',
+    ChartType: '',
 }
 
 
 const formSubmitHandler = (values, randomFunc) => {
     //Axios post request to API Endpoint
     const data = {
-        xAxisarray: [values.tl1, values.tl2, values.tl3, values.tl3, values.tl5],
+        xAxisarray: [values.tl1, values.tl2, values.tl3, values.tl4, values.tl5],
         yAxisArray: [values.d1, values.d2, values.d3, values.d4, values.d5],
         legend: values.legend,
-        typeOfChart: 1
+        typeOfChart: values.ChartType,
     }
     randomFunc(data);
 }
@@ -116,6 +117,15 @@ const DataEntry = (props) => {
                     <label htmlFor='d5'>Data Entry - 5</label>
                     <Field type='number' id='d5' name='d5' />
                     <ErrorMessage name='d5' />
+                </div>
+
+                <div>
+                    <label htmlfor="ChartType">Chart Type</label>
+                    <select id="ChartType" name="ChartType">
+                    <option value="BarChart">BarChart</option>
+                    <option value="LineChart">LineChart</option>
+                    <option value="DoughnoutChart">DoughnoutChart</option>
+                    </select>
                 </div>
 
                 <button type='submit'>SUBMIT</button>
