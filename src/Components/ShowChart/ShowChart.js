@@ -18,7 +18,7 @@ class ShowChart extends Component {
                 timeLine: props.xAxisarray,
                 dataSet: props.yAxisArray,
                 legend: props.legend,
-                typeOfChart: props.chartType
+                typeOfChart: props.ChartType
             });
         });
     }
