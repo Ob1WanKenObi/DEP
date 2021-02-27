@@ -55,7 +55,7 @@ const DataEntry = (props) => {
             <Form>
                 <div>
                     <label htmlFor='legend'>Legend</label>
-                    <Field type='text' id='legend' name='legend' />
+                    <Field id='legend' name='legend' />
                     <ErrorMessage name='legend' />
                 </div>
 
@@ -122,11 +122,11 @@ const DataEntry = (props) => {
                 <div>
                     <label htmlfor="ChartType">Chart Type</label>
                     <Field as="select" name="ChartType">
-                        <option value="BarChart">BarChart</option>
-                        <option value="LineChart">LineChart</option>
-                        <option value="DoughnoutChart">DoughnoutChart</option>
+                        <option value="Barchart" selected >Bar-chart</option>
+                        <option value="Linechart">Line-chart</option>
+                        <option value="Doughnoutchart">Doughnout-chart</option>
                     </Field>
-                    
+
                 </div>
 
                 <button type='submit'>SUBMIT</button>

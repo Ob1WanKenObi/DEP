@@ -3,6 +3,7 @@ import DataEntry from '../DataEntry/DataEntry';
 import BarChart from '../BarChart/BarChart';
 import LineChart from '../LineChart/LineChart';
 import DoughnoutChart from '../DoughnoutChart/DoughnotChart';
+
 class ShowChart extends Component {
 
     state = {
@@ -26,18 +27,16 @@ class ShowChart extends Component {
     render() {
         let bawal = <DataEntry kuchbhi={this.stateChangeHandler} />
         if (this.state.typeOfChart !== null) {
-            // check chart type
-            // change bawal according to that
-            if (this.state.typeOfChart == 'BarChart'){
+            if (this.state.typeOfChart === 'Barchart') {
                 bawal = <BarChart timeLine={this.state.timeLine} dataSet={this.state.dataSet} legend={this.state.legend} />
             }
-            else if (this.state.typeOfChart == 'LineChart'){
+            else if (this.state.typeOfChart === 'Linechart') {
                 bawal = <LineChart timeLine={this.state.timeLine} dataSet={this.state.dataSet} legend={this.state.legend} />
             }
-            else if (this.state.typeOfChart == 'DoughnoutChart'){
+            else if (this.state.typeOfChart === 'Doughnoutchart') {
                 bawal = <DoughnoutChart timeLine={this.state.timeLine} dataSet={this.state.dataSet} legend={this.state.legend} />
             }
-            else{
+            else {
                 bawal = <BarChart timeLine={this.state.timeLine} dataSet={this.state.dataSet} legend={this.state.legend} />
             }
         }
