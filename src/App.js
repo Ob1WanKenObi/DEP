@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       // <DoughnutChart timeLine={timeline} dataSet={data} legend="Death per year in millions" />
-      <DataEntry />
+      <ShowChart />
     );
   }
 }
