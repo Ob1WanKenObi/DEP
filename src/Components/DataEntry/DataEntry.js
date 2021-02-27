@@ -18,6 +18,7 @@ const initialValues = {
 
 
 const formSubmitHandler = (values, randomFunc) => {
+    //Axios post request to API Endpoint
     const data = {
         xAxisarray: [values.tl1, values.tl2, values.tl3, values.tl3, values.tl5],
         yAxisArray: [values.d1, values.d2, values.d3, values.d4, values.d5],
@@ -45,9 +46,6 @@ const validationSchema = Yup.object({
 
 
 const DataEntry = (props) => {
-
-
-
     return (
         <Formik
             initialValues={initialValues}
