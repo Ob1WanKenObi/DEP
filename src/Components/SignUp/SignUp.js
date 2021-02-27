@@ -8,7 +8,7 @@ const initialValues = {
     email: '',
     district: '',
     password: '',
-    confirmPassowrd: '',
+    confirmPassword: '',
 }
 
 const API = {
@@ -71,8 +71,8 @@ const SignUp = () => {
                 </div>
 
                 <div>
-                    <label htmlFor='passowrd'>Password</label>
-                    <Field type='password' id='passowrd' name='passowrd' />
+                    <label htmlFor='password'>Password</label>
+                    <Field type='password' id='password' name='password' />
                     <ErrorMessage name='password' />
                 </div>
 
