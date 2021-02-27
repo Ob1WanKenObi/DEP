@@ -17,21 +17,15 @@ const initialValues = {
 }
 
 
-const formSubmitHandler = (values) => {
+const formSubmitHandler = (values, randomFunc) => {
     //Axios post request to API Endpoint
     const data = {
+        xAxisarray: [values.tl1, values.tl2, values.tl3, values.tl3, values.tl5],
+        yAxisArray: [values.d1, values.d2, values.d3, values.d4, values.d5],
         legend: values.legend,
-        tl1: values.tl1,
-        d1: values.d1,
-        tl2: values.tl2,
-        d2: values.d2,
-        tl3: values.tl3,
-        d3: values.d3,
-        tl4: values.tl4,
-        d4: values.d4,
-        tl5: values.tl5,
-        d5: values.d5,
+        typeOfChart: 1
     }
+    randomFunc(data);
 }
 
 const validationSchema = Yup.object({
@@ -51,11 +45,11 @@ const validationSchema = Yup.object({
 
 
 
-const DataEntry = () => {
+const DataEntry = (props) => {
     return (
         <Formik
             initialValues={initialValues}
-            onSubmit={formSubmitHandler}
+            onSubmit={(values) => formSubmitHandler(values, props.kuchbhi)}
             validationSchema={validationSchema}>
             <Form>
                 <div>
