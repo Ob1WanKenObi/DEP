@@ -24,7 +24,7 @@ const formSubmitHandler = (values, randomFunc) => {
         xAxisarray: [values.tl1, values.tl2, values.tl3, values.tl4, values.tl5],
         yAxisArray: [values.d1, values.d2, values.d3, values.d4, values.d5],
         legend: values.legend,
-        typeOfChart: values.ChartType,
+        ChartType: values.ChartType,
     }
     randomFunc(data);
 }
@@ -121,11 +121,12 @@ const DataEntry = (props) => {
 
                 <div>
                     <label htmlfor="ChartType">Chart Type</label>
-                    <select id="ChartType" name="ChartType">
-                    <option value="BarChart">BarChart</option>
-                    <option value="LineChart">LineChart</option>
-                    <option value="DoughnoutChart">DoughnoutChart</option>
-                    </select>
+                    <Field as="select" name="ChartType">
+                        <option value="BarChart">BarChart</option>
+                        <option value="LineChart">LineChart</option>
+                        <option value="DoughnoutChart">DoughnoutChart</option>
+                    </Field>
+                    
                 </div>
 
                 <button type='submit'>SUBMIT</button>
