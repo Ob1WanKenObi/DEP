@@ -52,76 +52,86 @@ const DataEntry = (props) => {
             initialValues={initialValues}
             onSubmit={(values) => formSubmitHandler(values, props.kuchbhi)}
             validationSchema={validationSchema}>
-            <Form>
+            <Form 
+            style={{ display: "grid", gridTemplateColumns: "1fr 4fr 1fr", }}
+            labelCol={{ xs: 4 }}
+            wrapperCol={{ xs: 20 }}
+            >
+
+                <div style={{ flex: 1 }} />
+                <div style={{ background: "LightBlue" , flex: 1, padding: 40 }}>
                 <div>
-                    <label htmlFor='legend'>Legend</label>
-                    <Field id='legend' name='legend' />
+                    <h1> Enter Data Here: </h1>
+                </div>
+                <div>
+                    <label htmlFor='legend' class = "label-normal">Legend</label>
+                    <Field id='legend' name='legend' class="input-area-2" />
                     <ErrorMessage name='legend' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl1'>Time Stamp-1</label>
-                    <Field type='number' id='tl1' name='tl1' />
+                    <label htmlFor='tl1' class = "label-normal">Time Stamp-1</label>
+                    <Field type='number' id='tl1' name='tl1'  class="input-area-2"/>
                     <ErrorMessage name='tl1' />
                 </div>
 
                 <div>
-                    <label htmlFor='d1'>Data Entry - 1</label>
-                    <Field type='number' id='d1' name='d1' />
+                    <label htmlFor='d1' class = "label-normal">Data Entry - 1</label>
+                    <Field type='number' id='d1' name='d1' class="input-area-2" />
                     <ErrorMessage name='d1' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl2'>Time Stamp-2</label>
-                    <Field type='number' id='tl2' name='tl2' />
+                    <label htmlFor='tl2' class = "label-normal">Time Stamp-2</label>
+                    <Field type='number' id='tl2' name='tl2'  class="input-area-2"/>
                     <ErrorMessage name='tl2' />
                 </div>
 
                 <div>
-                    <label htmlFor='d2'>Data Entry - 2</label>
-                    <Field type='number' id='d2' name='d2' />
+                    <label htmlFor='d2' class = "label-normal">Data Entry - 2</label>
+                    <Field type='number' id='d2' name='d2'  class="input-area-2"/>
                     <ErrorMessage name='d2' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl3'>Time Stamp-3</label>
-                    <Field type='number' id='tl3' name='tl3' />
+                    <label htmlFor='tl3' class = "label-normal">Time Stamp-3</label>
+                    <Field type='number' id='tl3' name='tl3'  class="input-area-2"/>
                     <ErrorMessage name='tl3' />
                 </div>
 
                 <div>
-                    <label htmlFor='d3'>Data Entry - 3</label>
-                    <Field type='number' id='d3' name='d3' />
+                    <label htmlFor='d3' class = "label-normal">Data Entry - 3</label>
+                    <Field type='number' id='d3' name='d3'  class="input-area-2"/>
                     <ErrorMessage name='d3' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl4'>Time Stamp-4</label>
-                    <Field type='number' id='tl4' name='tl4' />
+                    <label htmlFor='tl4' class = "label-normal">Time Stamp-4</label>
+                    <Field type='number' id='tl4' name='tl4'  class="input-area-2"/>
                     <ErrorMessage name='tl4' />
                 </div>
 
                 <div>
-                    <label htmlFor='d4'>Data Entry - 4</label>
-                    <Field type='number' id='d4' name='d4' />
+                    <label htmlFor='d4' class = "label-normal">Data Entry - 4</label>
+                    <Field type='number' id='d4' name='d4'  class="input-area-2"/>
                     <ErrorMessage name='d4' />
                 </div>
 
                 <div>
-                    <label htmlFor='tl5'>Time Stamp-5</label>
-                    <Field type='number' id='tl5' name='tl5' />
+                    <label htmlFor='tl5' class = "label-normal">Time Stamp-5</label>
+                    <Field type='number' id='tl5' name='tl5'  class="input-area-2"/>
                     <ErrorMessage name='tl5' />
                 </div>
 
                 <div>
-                    <label htmlFor='d5'>Data Entry - 5</label>
-                    <Field type='number' id='d5' name='d5' />
+                    <label htmlFor='d5' class = "label-normal">Data Entry - 5</label>
+                    <Field type='number' id='d5' name='d5'   class="input-area-2"/>
                     <ErrorMessage name='d5' />
                 </div>
 
                 <div>
-                    <label htmlfor="ChartType">Chart Type</label>
-                    <Field as="select" name="ChartType">
+                    <label htmlfor="ChartType" class = "label-normal">Chart Type</label>
+                    <Field as="select" name="ChartType"  class="input-area-2">
                         <option value="Barchart" selected >Bar-chart</option>
                         <option value="Linechart">Line-chart</option>
                         <option value="Doughnoutchart">Doughnout-chart</option>
@@ -129,7 +139,8 @@ const DataEntry = (props) => {
 
                 </div>
 
-                <button type='submit'>SUBMIT</button>
+                <button type='submit' class="button-basic">SUBMIT</button>
+                </div>
             </Form>
         </Formik >
     );

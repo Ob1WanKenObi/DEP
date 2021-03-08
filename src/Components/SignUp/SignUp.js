@@ -1,8 +1,7 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik,ErrorMessage,Field,Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-
 const initialValues = {
     name: '',
     email: '',
@@ -11,9 +10,11 @@ const initialValues = {
     confirmPassword: '',
 }
 
+
+
 const API = {
-    URL: '',
-    key: ''
+    URL: 'http://localhost:8000/',
+    key: 'password'
 }
 
 const formSubmitHandler = (values) => {
@@ -44,44 +45,51 @@ const validationSchema = Yup.object({
 
 
 
-
 const SignUp = () => {
     return (
         <Formik
             initialValues={initialValues}
             onSubmit={formSubmitHandler}
             validationSchema={validationSchema}>
-            <Form>
-                <div>
-                    <label htmlFor='name'>Name</label>
-                    <Field type='text' id='name' name='name' />
+            <Form 
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
+            labelCol={{ xs: 4 }}
+            wrapperCol={{ xs: 20 }}
+            >
+                <div style={{ flex: 1 }} />
+                <div style={{ background: "LightBlue", flex: 1, padding: 40 }}>
+                
+                <div >
+                    <label htmlFor='name' class = "label-normal">Name</label>
+                    <Field type='name' id='name' name='name' class='input-area-1'/>
                     <ErrorMessage name='name' />
                 </div>
 
                 <div>
-                    <label htmlFor='email'>Email</label>
-                    <Field type='email' id='email' name='email' />
+                    <label htmlFor='email' class = "label-normal">Email</label>
+                    <Field type='email' id='email' name='email'  class='input-area-1'/>
                     <ErrorMessage name='email' />
                 </div>
 
                 <div>
-                    <label htmlFor='district'>District</label>
-                    <Field type='text' id='district' name='district' />
+                    <label htmlFor='district' class = "label-normal">District</label>
+                    <Field type='text' id='district' name='district' class='input-area-1'/>
                     <ErrorMessage name='district' />
                 </div>
 
                 <div>
-                    <label htmlFor='password'>Password</label>
-                    <Field type='password' id='password' name='password' />
+                    <label htmlFor='password' class = "label-normal">Password</label>
+                    <Field type='password' id='password' name='password' class='input-area-1' />
                     <ErrorMessage name='password' />
                 </div>
 
                 <div>
-                    <label htmlFor='confirmPassword'>Confirm Password</label>
-                    <Field type='password' id='confirmPassword' name='confirmPassword' />
+                    <label htmlFor='confirmPassword' class = "label-normal">Confirm Password</label>
+                    <Field type='password' id='confirmPassword' name='confirmPassword' class='input-area-1' />
                     <ErrorMessage name='confirmPassword' />
                 </div>
-                <button type='submit'>SIGN UP</button>
+                <button type='submit' class= "button-basic">SIGN UP</button>
+                </div>
             </Form>
         </Formik >
     );
