@@ -11,18 +11,16 @@ class App extends Component {
       // <DoughnutChart timeLine={timeline} dataSet={data} legend="Death per year in millions" />
       //<BarChart timeLine ={timeline} dataSet={data} legend="death in millions per months" />
       //<ShowChart />
-      <SheetEntry />
+      //<SheetEntry />
       //<LogIn />
       /*<div className="container">
         <h2 class = "major-heading-center">LOG IN!</h2>
         <h2 class = "minor-heading-center">LOG IN to be able to continue on the website.</h2>
-        <LogIn />>
+        <LogIn />
       </div>*/
-      /*<div className="container">
-        <h2 class = "major-heading-center">SIGN UP!</h2>
-        <h2 class = "minor-heading-center">Sign Up to be able to commit data on the website.</h2>
+      <div className="container">
         <SignUp />
-      </div>*/
+      </div>
       /*<div className="container">
         <ShowChart />
       </div>*/
