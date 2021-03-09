@@ -41,9 +41,9 @@ const SheetEntry = (props) => {
             >
 
                 <div style={{ flex: 1 }} />
-                <div style={{ background: "Dimgray" , flex: 1, padding: 40, borderRadius: "20px" }}>
+                <div style={{ background: "#e1e1f5" , flex: 1, padding: 40, borderRadius: "20px", marginTop: "60px" }}>
                 <div>
-                    <h1 class="minor-heading-2"><u>Upload Excel File Here: </u></h1>
+                    <h1 class="minor-heading-3"><u>Upload Excel File Here: </u></h1>
                 </div>
                 <div>
                     <label htmlFor='legend' class = "label-normal">Data Type</label>
@@ -53,7 +53,7 @@ const SheetEntry = (props) => {
 
                 <div>
                     <label htmlFor='excel' class = "label-normal">Excel</label>
-                    <Field type="file" id='excel' name='excel' class="input-area-2" accept=".xlsx,.xls"/>
+                    <Field type="file" id='excel' name='excel' class="input-area-2" style={{border: "1px solid black"}} accept=".xlsx,.xls"/>
                     <ErrorMessage name='excel' />
                 </div>
 

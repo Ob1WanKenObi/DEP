@@ -68,7 +68,11 @@ class App extends Component {
     this.setState({ showHome: false, showExcel: false, showManual: true });
     console.log("Manual called post", this.state);
   }
-
+  logOutHandler = () => {
+    console.log("LogOut called pre", this.state);
+    this.setState({ showHome: false, showExcel: false, showManual: false });
+    console.log("Logout called post", this.state);
+  }
 
   render() {
     const modulesList = modules.map(module => {
@@ -91,7 +95,11 @@ class App extends Component {
     else if (this.state.showManual) {
       currentView = dataView;
     }
-
+    else
+    {
+      fullView = loginView;
+      currentView = null;
+    }
     const defaultDashboard = (
       <>
         <Header username="Sparsh Agarwal" />
@@ -103,6 +111,7 @@ class App extends Component {
                   modules={modulesList}
                   resources={resources}
                   homeHandler={this.homeHandler}
+                  Logout={this.logOutHandler}
                 />
               </div>
             </div>
