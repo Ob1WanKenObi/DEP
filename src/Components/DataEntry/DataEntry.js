@@ -70,6 +70,12 @@ const DataEntry = (props) => {
                 </div>
 
                 <div>
+                    <label htmlFor='excel' class = "label-normal">excel</label>
+                    <Field type="file" id='excel' name='excel' class="input-area-2" accept=".xlsx,.xls"/>
+                    <ErrorMessage name='excel' />
+                </div>
+
+                <div>
                     <label htmlFor='tl1' class = "label-normal">Time Stamp-1</label>
                     <Field type='number' id='tl1' name='tl1'  class="input-area-2"/>
                     <ErrorMessage name='tl1' />
