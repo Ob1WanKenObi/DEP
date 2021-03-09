@@ -47,25 +47,31 @@ const modules = [
 ];
 
 class App extends Component {
+  state = {
+    showDashboard: false,
+    showExcel: false,
+    showManual: false,
+  }
+
 
   render() {
+
     return (
-      // <DoughnutChart timeLine={timeline} dataSet={data} legend="Death per year in millions" />
-      //<BarChart timeLine ={timeline} dataSet={data} legend="death in millions per months" />
-      //<ShowChart />
-      // <SheetEntry />
-      // <SideBar modules={modules} resources={resources} />
-      <div className="container">
+      <>
         <Header username="Sparsh Agarwal" />
         <div className="row w-100">
           <div className="col-2 px-2 w-100">
-            <SideBar modules={modules} resources={resources} />
+            <div style={{ position: "absolute", top: '0', left: '0', height: '100%', width: '100%' }}>
+              <div className="position-sticky" style={{ top: '0' }}>
+                <SideBar modules={modules} resources={resources} />
+              </div>
+            </div>
           </div>
           <div className="col-10">
             <ShowChart />
           </div>
         </div>
-      </div>
+      </>
 
       //<SheetEntry />
       //<LogIn />
