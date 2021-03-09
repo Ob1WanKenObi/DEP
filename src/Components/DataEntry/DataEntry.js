@@ -59,7 +59,7 @@ const DataEntry = (props) => {
             >
 
                 <div style={{ flex: 1 }} />
-                <div style={{ background: "Dimgray" , flex: 1, padding: 40 }}>
+                <div style={{ background: "Dimgray" , flex: 1, padding: 40, borderRadius: "20px" }}>
                 <div>
                     <h1 class="minor-heading-2"><u>Enter Data Here: </u></h1>
                 </div>

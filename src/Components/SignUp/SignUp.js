@@ -57,7 +57,7 @@ const SignUp = () => {
             wrapperCol={{ xs: 20 }}
             >
                 <div style={{ flex: 1 }} />
-                <div style={{ background: "dimgrey", flex: 1, padding: 40 }}>
+                <div style={{ background: "dimgrey", flex: 1, padding: 40, borderRadius: "20px" }}>
                 
                 <div >
                     <label htmlFor='name' class = "label-normal">Name</label>
