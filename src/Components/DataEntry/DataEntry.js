@@ -53,12 +53,11 @@ const DataEntry = (props) => {
             onSubmit={(values) => formSubmitHandler(values, props.kuchbhi)}
             validationSchema={validationSchema}>
             <Form 
-            style={{ display: "grid", gridTemplateColumns: "1fr 4fr 1fr", }}
-            labelCol={{ xs: 4 }}
-            wrapperCol={{ xs: 20 }}
+            //style={{ display: "grid", gridTemplateColumns: "1fr 4fr 1fr", }}
+            //labelCol={{ xs: 4 }}
+            //wrapperCol={{ xs: 20 }}
             >
 
-                <div style={{ flex: 1 }} />
                 <div style={{ background: "#e1e1f5" , flex: 1, padding: 40, borderRadius: "20px" }}>
                 <div>
                     <h1 class="minor-heading-3"><u>Enter Data Here: </u></h1>
