@@ -59,9 +59,9 @@ const DataEntry = (props) => {
             >
 
                 <div style={{ flex: 1 }} />
-                <div style={{ background: "LightBlue" , flex: 1, padding: 40 }}>
+                <div style={{ background: "Dimgray" , flex: 1, padding: 40 }}>
                 <div>
-                    <h1> Enter Data Here: </h1>
+                    <h1 class="minor-heading-2"><u>Enter Data Here: </u></h1>
                 </div>
                 <div>
                     <label htmlFor='legend' class = "label-normal">Legend</label>

@@ -11,7 +11,8 @@ class App extends Component {
       //<BarChart timeLine ={timeline} dataSet={data} legend="death in millions per months" />
       //<ShowChart />
       <div className="container">
-        <h1 class = "major-heading-center">SIGN UP!</h1>
+        <h2 class = "major-heading-center">SIGN UP!</h2>
+        <h2 class = "minor-heading-center">Sign Up to be able to commit data on the website.</h2>
         <SignUp />
       </div>
       /*<div className="container">
