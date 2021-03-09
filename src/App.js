@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SignUp from './Components/SignUp/SignUp';
 import ShowChart from './Components/ShowChart/ShowChart';
-
+import SheetEntry from './Components/SheetEntry/SheetEntry';
+import LogIn from './Components/LogIn/Login';
 
 class App extends Component {
 
@@ -10,11 +11,18 @@ class App extends Component {
       // <DoughnutChart timeLine={timeline} dataSet={data} legend="Death per year in millions" />
       //<BarChart timeLine ={timeline} dataSet={data} legend="death in millions per months" />
       //<ShowChart />
-      <div className="container">
+      <SheetEntry />
+      //<LogIn />
+      /*<div className="container">
+        <h2 class = "major-heading-center">LOG IN!</h2>
+        <h2 class = "minor-heading-center">LOG IN to be able to continue on the website.</h2>
+        <LogIn />>
+      </div>*/
+      /*<div className="container">
         <h2 class = "major-heading-center">SIGN UP!</h2>
         <h2 class = "minor-heading-center">Sign Up to be able to commit data on the website.</h2>
         <SignUp />
-      </div>
+      </div>*/
       /*<div className="container">
         <ShowChart />
       </div>*/
