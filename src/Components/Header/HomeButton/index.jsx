@@ -4,7 +4,7 @@ import { Home } from './styles';
 
 const HomeButton = ({ buttonText, buttonClickHandler }) => {
     return (
-        <Home onclick={buttonClickHandler}>
+        <Home onClick={buttonClickHandler}>
             <HomeFilled style={{ color: '#ffffff', margin: '0 12px 0 7px' }} />
             {buttonText}
         </Home>

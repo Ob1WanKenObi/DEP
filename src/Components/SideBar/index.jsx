@@ -1,12 +1,11 @@
 import React from 'react';
-import { WalletFilled, LoginOutlined } from '@ant-design/icons';
+import { LoginOutlined } from '@ant-design/icons';
 import {
     Wrapper,
     CenterContainer,
     Container,
     Module,
     Resource,
-    EmptyCircle,
     NormalText,
     Placeholder,
     BottomBorder,
@@ -14,13 +13,13 @@ import {
 import HomeButton from '../Header/HomeButton/index';
 import SideBarButton from './SideBarButton/index';
 
-const SideBar = ({ modules, resources, Logout }) => {
+const SideBar = ({ modules, resources, Logout, homeHandler }) => {
     const moduleList = modules;
     const resourceList = resources;
     return (
         <Wrapper>
             <CenterContainer>
-                <HomeButton buttonText="Home" />
+                <HomeButton buttonText="Home" buttonClickHandler={homeHandler} />
                 <BottomBorder />
             </CenterContainer>
             <Container>
@@ -38,6 +37,7 @@ const SideBar = ({ modules, resources, Logout }) => {
                                 justifyContent: 'space-between',
                                 boxSizing: 'border-box',
                             }}
+                            onClick={module.useFunction}
                         >
                             <Module href={module.link}>{module.name}</Module>
                             {placeholder}
