@@ -2,6 +2,8 @@ import React from 'react';
 import { Formik,ErrorMessage,Field,Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import {Alert} from 'antd';
+
 const initialValues = {
     name: '',
     email: '',
@@ -57,12 +59,13 @@ const SignUp = () => {
             wrapperCol={{ xs: 20 }}
             >
                 <div style={{ flex: 1 }} />
-                <div style={{ background: "dimgrey", flex: 1, padding: 40, borderRadius: "20px" }}>
+                <div style={{ background: "#e1e1f5", flex: 1, padding: 40, borderRadius: "20px" }}>
                 
+                <h2 class = "minor-heading-3">Sign Up to use the website</h2>
                 <div >
                     <label htmlFor='name' class = "label-normal">Name</label>
                     <Field type='name' id='name' name='name' class='input-area-1'/>
-                    <ErrorMessage name='name' />
+                    <ErrorMessage render={text=><Alert message={text} showIcon type='warning' />} name='name' />
                 </div>
 
                 <div>
