@@ -191,3 +191,24 @@ button + button {
 .needbg {
   background-image: url('./common/images/signin.svg');
 }
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 70px;
+  grid-column-gap: 70px;
+  grid-row-gap: 70px;
+}
+
+.grid-item {
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+  height: 250px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #1f396b;
+  font-style: unset;
+}

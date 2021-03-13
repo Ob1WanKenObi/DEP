@@ -5,6 +5,7 @@ import SheetEntry from './Components/SheetEntry/SheetEntry';
 import LogIn from './Components/LogIn/Login';
 import SideBar from './Components/SideBar/index';
 import Header from './Components/Header/index';
+import HomePage from './Components/HomePage/HomePage';
 
 const resources = [
   {
@@ -81,7 +82,7 @@ class App extends Component {
     modulesList[0].useFunction = this.manualHandler;
     modulesList[1].useFunction = this.excelHandler;
     const loginView = <LogIn validateUserHandler={this.homeHandler} />
-    const homeView = "Home Page";
+    const homeView = <HomePage />;
     const excelView = <SheetEntry />
     const dataView = <ShowChart />
     let fullView = loginView;
