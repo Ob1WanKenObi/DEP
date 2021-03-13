@@ -196,9 +196,9 @@ button + button {
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 70px;
-  grid-column-gap: 70px;
-  grid-row-gap: 70px;
+  padding: 40px;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
 }
 
 .grid-item {
@@ -211,4 +211,9 @@ button + button {
   text-decoration: underline;
   color: #1f396b;
   font-style: unset;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.grid-item:hover {
+  box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
