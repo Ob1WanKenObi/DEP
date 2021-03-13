@@ -10,7 +10,7 @@ import {
     Placeholder,
     BottomBorder,
 } from './styles';
-import HomeButton from '../Header/HomeButton/index';
+import HomeButton from './HomeButton/index';
 import SideBarButton from './SideBarButton/index';
 
 const SideBar = ({ modules, resources, Logout, homeHandler }) => {

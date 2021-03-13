@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const BarChart = ({ timeLine, dataSet, legend }) => {
+const BarChart = ({ timeLine, dataSet, legend, height, width }) => {
 
     const bgColor = ['rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -29,8 +29,8 @@ const BarChart = ({ timeLine, dataSet, legend }) => {
                     }
                 ]
             }}
-            height={600}
-            width={800}
+            height={height}
+            width={width}
             options={{
                 maintainAspectRatio: false,
                 scales: {
