@@ -1,48 +1,31 @@
 import React from 'react';
-import { SearchOutlined, BellOutlined, UserOutlined } from '@ant-design/icons';
-import {
-    Wrapper,
-    IconContainer,
-    LogoContainer,
-    UserName,
-    EmptyCircle,
-} from './styles';
-import GovLogo from '../../common/images/GovLogo.png'
+import { AppHeader, Wrapper, HeaderLinks, LogoContainer, Logo } from './styles';
 
-const Header = ({
-    username,
-    notficationButtonHandler,
-    profileButtonHandler,
-}) => {
-    const iconStyle = {
-        color: '#ffffff',
-        fontSize: '1.5em',
-        margin: '0 10px',
-    };
-    const iconList = [
-        <SearchOutlined style={iconStyle} />,
-        <a href={notficationButtonHandler}>
-            <BellOutlined style={iconStyle} />
-        </a>,
-        <a href={profileButtonHandler}>
-            <EmptyCircle>
-                <UserOutlined style={{ fontSize: '1em', color: '#ffffff' }} />
-            </EmptyCircle>
-        </a>,
-    ];
-
+const Header = () => {
     return (
-        <Wrapper>
-            <LogoContainer>
-                <img src={GovLogo} alt="Govt. Logo" style={{ height: '70%' }} ></img>
-            </LogoContainer>
-            <IconContainer>
-                {iconList.map(icon => {
-                    return icon;
-                })}
-                <UserName>{username}</UserName>
-            </IconContainer>
-        </Wrapper>
+        <AppHeader>
+            <Wrapper>
+                <LogoContainer>
+                    <Logo />
+                </LogoContainer>
+                <HeaderLinks>
+                    <button className="links">
+                        Search
+                    </button>
+
+                    <button className="links">
+                        Bell
+                    </button>
+
+                    <button className="links">
+                        User
+                    </button>
+                    <div className="nick-name">
+                        Sparsh
+                    </div>
+                </HeaderLinks>
+            </Wrapper>
+        </AppHeader>
     );
 };
 

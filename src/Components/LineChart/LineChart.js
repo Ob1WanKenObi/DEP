@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = ({ timeLine, legend, dataSet }) => {
+const LineChart = ({ timeLine, legend, dataSet, height, width }) => {
 
     return (
         <Line
@@ -19,8 +19,8 @@ const LineChart = ({ timeLine, legend, dataSet }) => {
                     ]
                 }
             }
-            height={600}
-            width={800}
+            height={height}
+            width={width}
             options={
                 {
                     maintainAspectRatio: false,
