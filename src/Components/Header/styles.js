@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Layout } from 'antd';
+import GovLogo from '../../common/images/GovLogo.png'
 
 import FlexBox from '../FlexBox/index';
 
@@ -43,7 +44,7 @@ export const HeaderLinks = styled.div`
 `;
 
 export const Logo = styled.img.attrs({
-    src: '../../../assets/images/Logo.png',
+    src: '../../common/images/GovLogo.png',
 })`
     display: table-cell;
     vertical-align: middle;

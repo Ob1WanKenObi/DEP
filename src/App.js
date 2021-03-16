@@ -129,8 +129,6 @@ class App extends Component {
 
     return (
       <Homepage
-        modules={modulesList}
-        resources={resources}
         homeHandler={this.homeHandler}
         Logout={this.logOutHandler}
         username="Sparsh Agarwal" />

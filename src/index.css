@@ -212,3 +212,29 @@ button + button {
   overflow-x: hidden;
   height: calc(100vh - 70px);
 }
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 40px;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
+.grid-item {
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  font-size: 20px;
+  text-align: center;
+  height: 250px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #1f396b;
+  font-style: unset;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.grid-item:hover {
+  box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

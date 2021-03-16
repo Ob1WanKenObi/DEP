@@ -21,9 +21,9 @@ class HomePage extends Component {
                     Tax Data<br></br>
                     <img src={tax} alt="COVID" style={{ width: "180px", height: "180px", marginTop: "10px" }}></img>
                 </div>
-                <div class="grid-item">Samlpe-heading-4</div>
-                <div class="grid-item">Samlpe-heading-5</div>
-                <div class="grid-item">Samlpe-heading-6</div>
+                <div class="grid-item">sample-heading-4</div>
+                <div class="grid-item">sample-heading-5</div>
+                <div class="grid-item">sample-heading-6</div>
             </div>
         );
     }
