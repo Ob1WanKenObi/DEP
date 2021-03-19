@@ -1,19 +1,15 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import '~antd/dist/antd.css';
 
 body {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   color: #24292e;
   background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -190,6 +186,31 @@ button + button {
 
 .needbg {
   background-image: url('./common/images/signin.svg');
+}
+
+.app-scroll {
+  &::-webkit-scrollbar {
+      width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+      display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(230, 227, 227, 0.2);
+
+      &:hover {
+          background-color: rgba(230, 227, 227, 0.3);
+      }
+  }
+}
+
+.app-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 70px);
 }
 
 .grid-container {

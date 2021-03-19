@@ -5,7 +5,7 @@ import SheetEntry from './Components/SheetEntry/SheetEntry';
 import LogIn from './Components/LogIn/Login';
 import SideBar from './Components/SideBar/index';
 import Header from './Components/Header/index';
-import HomePage from './Components/HomePage/HomePage';
+import Homepage from './Components/HomePage/index';
 
 const resources = [
   {
@@ -96,8 +96,7 @@ class App extends Component {
     else if (this.state.showManual) {
       currentView = dataView;
     }
-    else
-    {
+    else {
       fullView = loginView;
       currentView = null;
     }
@@ -129,7 +128,10 @@ class App extends Component {
     }
 
     return (
-      fullView
+      <Homepage
+        homeHandler={this.homeHandler}
+        Logout={this.logOutHandler}
+        username="Sparsh Agarwal" />
     );
   }
 }
