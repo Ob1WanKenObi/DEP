@@ -1,7 +1,7 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-const DoughnutChart = ({ timeLine, legend, dataSet }) => {
+const DoughnutChart = ({ timeLine, legend, dataSet, height, width }) => {
 
     const backgroundColor = [
         "#0074D9",
@@ -37,8 +37,8 @@ const DoughnutChart = ({ timeLine, legend, dataSet }) => {
                     ]
                 }
             }
-            height={600}
-            width={800}
+            height={height}
+            width={width}
             options={
                 {
                     maintainAspectRatio: false,
