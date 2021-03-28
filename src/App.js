@@ -5,7 +5,7 @@ import SheetEntry from './Components/SheetEntry/SheetEntry';
 import LogIn from './Components/LogIn/Login';
 import SideBar from './Components/SideBar/index';
 import Header from './Components/Header/index';
-import Homepage from './Components/HomePage/index';
+import HomePage from './Components/HomePage/index';
 
 const resources = [
   {
@@ -128,10 +128,11 @@ class App extends Component {
     }
 
     return (
-      <Homepage
+      <HomePage
         homeHandler={this.homeHandler}
         Logout={this.logOutHandler}
-        username="Sparsh Agarwal" />
+        username="Sparsh Agarwal" 
+        ></HomePage>
     );
   }
 }
