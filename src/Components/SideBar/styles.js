@@ -7,7 +7,7 @@ const { Sider } = Layout;
 
 export const SideNav = styled(Sider).attrs({
     className: 'side-nav',
-    width: 250,
+    width: 200,
 })`
     font-size: 1rem;
 `;

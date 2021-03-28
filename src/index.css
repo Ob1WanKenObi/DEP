@@ -238,3 +238,71 @@ button + button {
 .grid-item:hover {
   box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+
+.grid-container-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5fr 3fr 3fr 1fr 1fr;
+  padding: 1% 2% 1% 2%;
+  grid-column-gap: 4%;
+  grid-row-gap: 10px;
+}
+
+.grid-item-search {
+  font-size: 18px;
+  text-align: center;
+}
+
+/*.grid-item-search:hover {
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24), 0 4px 8px 0 rgba(0,0,0,0.19);
+}*/
+
+.button-search {
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  background-color: #252540;
+}
+
+.major-upper-tabs {
+  width: 100%;
+}
+
+.major-tabs {
+  font-size: 23px;
+  width: 150px;
+  text-align: center;
+}
+
+.grid-container-datasearch-2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  padding: 40px 80px 40px 80px;
+  grid-column-gap: 80px;
+  grid-row-gap: 80px;
+}
+
+.grid-item-datasearch-2 {
+  font-size: 20px;
+  text-align: center;
+  height: 150px;
+  color: #1f396b;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.grid-item-datasearch-2:hover {
+  box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.search-data-heading {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.search-data-data {
+  color: white;
+  font-size: 25px;
+}
