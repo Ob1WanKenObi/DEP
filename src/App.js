@@ -5,7 +5,14 @@ import SheetEntry from './Components/SheetEntry/SheetEntry';
 import LogIn from './Components/LogIn/Login';
 import SideBar from './Components/SideBar/index';
 import Header from './Components/Header/index';
-import Homepage from './Components/HomePage/index';
+import HomePage from './Components/HomePage/index';
+import SearchBar from './Components/SearchBar/index';
+import AllChart from './Components/AllChart/AllChart';
+import SearchData from './Components/SearchData/index';
+import PageLayout from './Components/PageLayout/PageLayout';
+const xaxis = ['Jan', 'Feb', 'March', 'April', 'May'];
+const yaxis = ['120', '140', '100', '160', '170'];
+const Uparka = "Maut";
 
 const resources = [
   {
@@ -82,7 +89,7 @@ class App extends Component {
     modulesList[0].useFunction = this.manualHandler;
     modulesList[1].useFunction = this.excelHandler;
     const loginView = <LogIn validateUserHandler={this.homeHandler} />
-    const homeView = "Home Page";
+    const homeView = <HomePage />;
     const excelView = <SheetEntry />
     const dataView = <ShowChart />
     let fullView = loginView;
@@ -128,10 +135,13 @@ class App extends Component {
     }
 
     return (
-      <Homepage
+      /*<HomePage
         homeHandler={this.homeHandler}
         Logout={this.logOutHandler}
-        username="Sparsh Agarwal" />
+        username="Sparsh Agarwal" />*/
+      //<SearchData />
+      //<SignUp />
+      <PageLayout><SignUp /></PageLayout>
     );
   }
 }
