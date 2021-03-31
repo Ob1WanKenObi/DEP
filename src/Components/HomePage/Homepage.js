@@ -2,19 +2,9 @@ import React, { Component } from 'react';
 import covid from '../../common/images/corona.png';
 import agri from '../../common/images/agri.png';
 import tax from '../../common/images/tax.jpg';
-import axios from 'axios';
 
 class HomePage extends Component {
 
-    componentDidMount() {
-        axios.get('http://api-prd.axesso.de/amz/amazon-lookup-product?url=https://www.amazon.com/dp/B01MQNPOUF')
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
 
     render() {
         return (

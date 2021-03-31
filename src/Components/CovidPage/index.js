@@ -1,11 +1,11 @@
 import React from 'react';
 import PageLayout from '../PageLayout/PageLayout';
-import Homepage from './HomePage';
+import Covidpage from './Covidpage';
 
 const index = (props) => {
     return (
         <PageLayout {...props}>
-            <Homepage />
+            <Covidpage />
         </PageLayout>
     );
 }
