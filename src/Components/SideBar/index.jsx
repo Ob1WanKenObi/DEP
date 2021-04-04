@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import FlexBox from '../FlexBox/index';
 import {
     LinkContainer,
@@ -21,24 +21,20 @@ import {
 
 const resources = [
     {
-        name: 'Tax Data',
-        link: '/app/quick-start',
+        name: 'General Administration',
+        link: '/general-administration',
     },
     {
-        name: 'Health Data',
-        link: '/app/quick-start',
+        name: 'Development Administration',
+        link: '/dev-administration',
     },
     {
-        name: 'Court Cases Data',
-        link: '/app/quick-start',
+        name: 'Seasonal Work',
+        link: '/seasonal',
     },
     {
-        name: 'Govt. Program Data',
-        link: '/app/quick-start',
-    },
-    {
-        name: 'Agriculture Data',
-        link: '/app/quick-start',
+        name: 'Structured Drives and Working',
+        link: '/drives-working',
     },
 ];
 const modules = [
@@ -64,7 +60,7 @@ const SideBar = () => {
         <SideNav>
             <div>
                 <LinkContainer>
-                    <StyledLink to="/app">
+                    <StyledLink to="/">
                         <NavLink >
                             Home
                         </NavLink>

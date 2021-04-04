@@ -64,7 +64,9 @@ const Covidpage = () => {
     return (
         <div>
             <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
-            {showStats ? statistics : <div className="mx-4"><AllChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} /></div>}
+            {showStats ? statistics : <div className="mx-4">
+                <AllChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} />
+            </div>}
         </div>
     )
 }
