@@ -32,6 +32,7 @@ export const HeaderLinks = styled.div`
         outline: none;
         background-color: transparent;
         padding: 0px 10px;
+        color: #ffffff;
     }
 
     .nick-name {

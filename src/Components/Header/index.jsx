@@ -15,17 +15,6 @@ const Header = () => {
                     }} />
                 </LogoContainer>
                 <HeaderLinks>
-                    <button className="links">
-                        Search
-                    </button>
-
-                    <button className="links">
-                        Bell
-                    </button>
-
-                    <button className="links">
-                        User
-                    </button>
                     <div className="nick-name">
                         Sparsh
                     </div>
