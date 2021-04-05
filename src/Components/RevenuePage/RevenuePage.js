@@ -1,13 +1,7 @@
 import React, { useState } from 'react'
-import { Statistic } from 'antd'
 import SearchBar from '../SearchBar/SearchBar';
 import AllChart from '../AllChart/AllChart';
-import linechart from '../../common/images/linechart.svg';
 import alert from '../../common/images/alert.svg';
-import cross from '../../common/images/cross.svg';
-import needle from '../../common/images/needle.svg';
-import virus from '../../common/images/virus-outline.svg';
-import skull from '../../common/images/skull.svg';  
 import rupee from '../../common/images/currency-inr.svg';
 
 const timeLine = ['January', 'February', 'March', 'April', 'May'];
@@ -27,8 +21,8 @@ const RevenuePage = () => {
     }
 
     let statistics =
-        <div className="grid-container-datasearch-2" style={{gridTemplateColumns: "2fr 2fr"}}>
-            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#1cb077"}}>
+        <div className="grid-container-datasearch-2" style={{ gridTemplateColumns: "2fr 2fr" }}>
+            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#1cb077" }}>
                 <div className="search-data-heading" >Revenue Collection in 2020</div>
                 <div className="search-data-data"><span><img src={rupee} className="mx-2" />20,18,30,670</span></div>
             </div>
@@ -51,12 +45,12 @@ const RevenuePage = () => {
     return (
         <div>
             <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
-            {showStats ? statistics : 
-            <div  className="chart-box">
-                <div  style={{width: "70%"}}>
-                    <AllChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} />
-                </div>
-            </div>}
+            {showStats ? statistics :
+                <div className="chart-box">
+                    <div style={{ width: "70%" }}>
+                        <AllChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} />
+                    </div>
+                </div>}
         </div>
     )
 }

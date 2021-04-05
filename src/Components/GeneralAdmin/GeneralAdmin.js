@@ -3,7 +3,6 @@ import { Tabs } from "antd";
 import covidIcon from '../../common/images/virus-outline.svg';
 import plantIcon from '../../common/images/sprout.svg';
 import rupee from '../../common/images/currency-inr.svg';
-import policeBadge from '../../common/images/police-badge-outline.svg';
 import hammer from '../../common/images/gavel.svg';
 import cross from '../../common/images/cross.svg';
 import needle from '../../common/images/needle.svg';
