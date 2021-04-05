@@ -1,11 +1,11 @@
 import React from 'react';
 import PageLayout from '../PageLayout/PageLayout';
-import Homepage from './HomePage';
+import GeneralAdmin from './GeneralAdmin';
 
 const index = (props) => {
     return (
         <PageLayout {...props}>
-            <Homepage />
+            <GeneralAdmin />
         </PageLayout>
     );
 }
