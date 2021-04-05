@@ -5,6 +5,8 @@ import plantIcon from '../../common/images/sprout.svg';
 import rupee from '../../common/images/currency-inr.svg';
 import policeBadge from '../../common/images/police-badge-outline.svg';
 import hammer from '../../common/images/gavel.svg';
+import cross from '../../common/images/cross.svg';
+import needle from '../../common/images/needle.svg';
 import RevenuePage from '../RevenuePage/RevenuePage';
 import CourtPage from '../CourtPage/CourtPage';
 import Covidpage from '../CovidPage/Covidpage';
@@ -43,12 +45,12 @@ export const GeneralAdmin = () => {
                             <Covidpage />
                         </div>
                     </TabPane>
-                    <TabPane key="4" tab={<StyledTab><img src={hammer} className="mx-2" />Healthcare</StyledTab>}>
+                    <TabPane key="4" tab={<StyledTab><img src={cross} className="mx-2" />Healthcare</StyledTab>}>
                         <div>
                             <HealthcarePage />
                         </div>
                     </TabPane>
-                    <TabPane key="5" tab={<StyledTab><img src={policeBadge} className="mx-2" />Drug Abuse</StyledTab>}>
+                    <TabPane key="5" tab={<StyledTab><img src={needle} className="mx-2" />Drug Abuse</StyledTab>}>
                         <div>
                             <DrugPage />
                         </div>
