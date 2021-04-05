@@ -213,18 +213,18 @@ button + button {
   height: calc(100vh - 70px);
 }
 
-.grid-container {
+.grid-container-home {
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 40px;
-  grid-column-gap: 50px;
-  grid-row-gap: 50px;
+  padding: 60px 120px 60px 120px;
+  grid-column-gap: 120px;
+  grid-row-gap: 60px;
 }
 
-.grid-item {
-  border: 2px solid rgba(0, 0, 0, 0.8);
-  border-radius: 15px;
+.grid-item-home {
+  border: 0px solid rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
   font-size: 20px;
   text-align: center;
   height: 250px;
@@ -233,9 +233,13 @@ button + button {
   color: #1f396b;
   font-style: unset;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.grid-item:hover {
+.grid-item-home:hover {
   box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
