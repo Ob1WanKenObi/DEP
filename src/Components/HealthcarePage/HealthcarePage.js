@@ -12,8 +12,8 @@ import skull from '../../common/images/skull.svg';
 const timeLine = ['January', 'February', 'March', 'April', 'May'];
 const dataset = [20331, 16344, 12334, 19443, 15224];
 
-const Covidpage = () => {
-    const DataType = ['Cases', 'Vaccinated', 'Recovered', 'Deaths'];
+const HealthcarePage = () => {
+    const DataType = ['Vaccination Data', 'Upgradation of Infrastructure', 'National Health Mission Schemes', 'Sarbat Sehat Bima Yojna (SSBY)'];
     const [showStats, setShowStats] = useState(true);
     const [typeofData, setTypeOfData] = useState(null);
 
@@ -26,30 +26,23 @@ const Covidpage = () => {
     }
 
     let statistics =
-        <div className="grid-container-datasearch-2">
-            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#f78820" }}>
-                <div className="search-data-heading" >Total Cases</div>
-                <div className="search-data-data"><span><img src={linechart} className="mx-2" />205189</span></div>
-            </div>
-            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#e3685d" }}>
-                <div className="search-data-heading">Total Deaths</div>
-                <div className="search-data-data"><span><img src={skull} className="mx-2" />6204</span></div>
-            </div>
-            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#7aba20" }}>
-                <div className="search-data-heading">Total Recovered</div>
-                <div className="search-data-data"><span><img src={cross} className="mx-2" />185762</span></div>
-            </div>
+        <div className="grid-container-datasearch-2" style={{gridTemplateColumns: "2fr 2fr"}}>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#8d45d9" }}>
-                <div className="search-data-heading">Active Cases</div>
-                <div className="search-data-data"><span><img src={alert} className="mx-2" />8020</span></div>
+                <div className="search-data-heading" >Less than 1 year olds Immunized - 2020 </div>
+                <div className="search-data-data"><span><img src={needle} className="mx-2" />16598</span></div>
             </div>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#4870db" }}>
-                <div className="search-data-heading">Vaccinations Done</div>
-                <div className="search-data-data"><span><img src={needle} className="mx-2" />3%</span></div>
+                <div className="search-data-heading">Less than 1 year olds Immunity Target - 2020</div>
+                <div className="search-data-data"><span><img src={needle} className="mx-2" />17151</span></div>
             </div>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#1cb077" }}>
-                <div className="search-data-heading">Vaccinations Left</div>
-                <div className="search-data-data"><span><img src={needle} className="mx-2" />97%</span></div>
+                <div className="search-data-heading">Dengue Cases found this year</div>
+                <div className="search-data-data"><span><img src={cross} className="mx-2" />149</span></div>
+            </div>
+            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#7aba20" }}>
+                <div className="search-data-heading">Immunity Target Progress</div>
+                <div className="search-data-data"><span><img src={linechart
+                } className="mx-2" />26%</span></div>
             </div>
         </div>
 
@@ -68,5 +61,5 @@ const Covidpage = () => {
     )
 }
 
-export default Covidpage;
+export default HealthcarePage;
 

@@ -8,12 +8,14 @@ import cross from '../../common/images/cross.svg';
 import needle from '../../common/images/needle.svg';
 import virus from '../../common/images/virus-outline.svg';
 import skull from '../../common/images/skull.svg';
+import plantIcon from '../../common/images/sprout.svg';
+import chfile from '../../common/images/checkfile.svg';
 
 const timeLine = ['January', 'February', 'March', 'April', 'May'];
 const dataset = [20331, 16344, 12334, 19443, 15224];
 
-const Covidpage = () => {
-    const DataType = ['Cases', 'Vaccinated', 'Recovered', 'Deaths'];
+const RationPage = () => {
+    const DataType = ['Distribution of Atta', 'Distribution of Dal'];
     const [showStats, setShowStats] = useState(true);
     const [typeofData, setTypeOfData] = useState(null);
 
@@ -26,30 +28,22 @@ const Covidpage = () => {
     }
 
     let statistics =
-        <div className="grid-container-datasearch-2">
+        <div className="grid-container-datasearch-2" style={{gridTemplateColumns: "2fr 2fr"}}>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#f78820" }}>
-                <div className="search-data-heading" >Total Cases</div>
-                <div className="search-data-data"><span><img src={linechart} className="mx-2" />205189</span></div>
+                <div className="search-data-heading">Number of Smart Ration Cards issued</div>
+                <div className="search-data-data"><span><img src={plantIcon} className="mx-2" />111403</span></div>
             </div>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#e3685d" }}>
-                <div className="search-data-heading">Total Deaths</div>
-                <div className="search-data-data"><span><img src={skull} className="mx-2" />6204</span></div>
-            </div>
-            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#7aba20" }}>
-                <div className="search-data-heading">Total Recovered</div>
-                <div className="search-data-data"><span><img src={cross} className="mx-2" />185762</span></div>
+                <div className="search-data-heading" >Number of Beneficiaries </div>
+                <div className="search-data-data"><span><img src={linechart} className="mx-2" />422534</span></div>
             </div>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#8d45d9" }}>
-                <div className="search-data-heading">Active Cases</div>
-                <div className="search-data-data"><span><img src={alert} className="mx-2" />8020</span></div>
+                <div className="search-data-heading">Cards that received benifits</div>
+                <div className="search-data-data"><span><img src={chfile} className="mx-2" />25032</span></div>
             </div>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#4870db" }}>
-                <div className="search-data-heading">Vaccinations Done</div>
-                <div className="search-data-data"><span><img src={needle} className="mx-2" />3%</span></div>
-            </div>
-            <div className="grid-item-datasearch-2" style={{ backgroundColor: "#1cb077" }}>
-                <div className="search-data-heading">Vaccinations Left</div>
-                <div className="search-data-data"><span><img src={needle} className="mx-2" />97%</span></div>
+                <div className="search-data-heading">Percentage of cards receiving benifits</div>
+                <div className="search-data-data"><span><img src={alert} className="mx-2" />22.46%</span></div>
             </div>
         </div>
 
@@ -68,5 +62,5 @@ const Covidpage = () => {
     )
 }
 
-export default Covidpage;
+export default RationPage;
 
