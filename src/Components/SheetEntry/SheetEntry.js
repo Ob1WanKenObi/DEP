@@ -9,7 +9,6 @@ import Linechart from '../LineChart/LineChart';
 const initialValues = {
     legend: '',
     ChartType: 'Barchart',
-    //excel: null,
 }
 
 const API = {
@@ -20,10 +19,8 @@ const API = {
 
 
 const validationSchema = Yup.object({
-    legend: Yup.string().required('Required'),
-    //excel: Yup.mixed().required('Required'),
+    legend: Yup.string().required('Required !'),
 });
-
 
 
 const SheetEntry = (props) => {
@@ -98,10 +95,10 @@ const SheetEntry = (props) => {
                     <div>
                         <h1 class="minor-heading-3"><u>Upload Excel File Here: </u></h1>
                     </div>
-                    <div>
+                    <div >
                         <label htmlFor='legend' class="label-normal">Data Type</label>
                         <Field id='legend' name='legend' class="input-area-2" />
-                        <ErrorMessage name='legend' />
+                        <ErrorMessage name='legend' render={error => <div style={{ color: "#ff0000" }}>{error}</div>} />
                     </div>
                     <div>
                         <label htmlFor='excel' class="label-normal">Excel</label>
@@ -115,8 +112,6 @@ const SheetEntry = (props) => {
                         <span>File Format: .csv, Maximum file size: 25mb</span>
                         {/* <ErrorMessage name='excel' /> */}
                     </div>
-
-
                     <div>
                         <label htmlFor="ChartType" class="label-normal">Chart Type</label>
                         <Field as="select" name="ChartType" class="input-area-2">
@@ -125,7 +120,9 @@ const SheetEntry = (props) => {
                             <option value="Doughnoutchart">Doughnout-chart</option>
                         </Field>
                     </div>
-                    <button type='submit' class="button-basic">SUBMIT</button>
+                    <div className="d-flex justify-content-center">
+                        <button type='submit' class="button-basic" style={{ width: "25%" }}>SUBMIT</button>
+                    </div>
                 </div>
             </Form>
         </Formik >);
