@@ -45,7 +45,7 @@ const modules = [
     },
     {
         name: 'Upload Excel file',
-        link: '/app/quick-start',
+        link: '/upload-sheet',
         items: 0,
     },
     {
