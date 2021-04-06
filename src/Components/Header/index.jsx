@@ -7,7 +7,7 @@ const Header = () => {
         <AppHeader>
             <Wrapper>
                 <LogoContainer>
-                    {/* <img src={govlogo} alt="government logo" /> */}
+                    <img src={govlogo} alt="government logo" style={{ width: "60px", height: "50px",marginLeft: "10px"}}/>
                 </LogoContainer>
                 <HeaderLinks>
                     <div className="nick-name">
