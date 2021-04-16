@@ -8,9 +8,16 @@ import cross from '../../common/images/cross.svg';
 import needle from '../../common/images/needle.svg';
 import virus from '../../common/images/virus-outline.svg';
 import skull from '../../common/images/skull.svg';
+import MultiChart from '../MultiCharts/MultiCharts';
 
 const timeLine = ['January', 'February', 'March', 'April', 'May'];
-const dataset = [20331, 16344, 12334, 19443, 15224];
+
+const dataset =    [[3311, 16344, 12334, 19443, 15224],
+                    [8311, 16344, 12334, 19443, 15224],
+                    [13311, 16344, 12334, 19443, 15224],
+                    [18311, 16344, 12334, 19443, 15224],
+                    [23311, 16344, 12334, 19443, 15224],
+                    [28311, 16344, 12334, 19443, 15224]];
 
 const Covidpage = () => {
     const DataType = ['Cases', 'Vaccinated', 'Recovered', 'Deaths'];
@@ -60,8 +67,8 @@ const Covidpage = () => {
             <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
             {showStats ? statistics : 
             <div className="chart-box">
-                <div  style={{width: "70%"}}>
-                    <AllChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} />
+                <div>
+                    <MultiChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} />
                 </div>
             </div>}
         </div>

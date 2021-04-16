@@ -21,8 +21,8 @@ const AllChart = ({ datasets, legend, timeline }) => {
             dataSet={datasets}
             legend={legend}
             timeLine={timeline}
-            width="400"
-            height="400"
+            width="270"
+            height="240"
             downloadAsImage={downloadAsImage}
           />
         </TabPane>
@@ -31,8 +31,8 @@ const AllChart = ({ datasets, legend, timeline }) => {
             dataSet={datasets}
             legend={legend}
             timeLine={timeline}
-            width="400"
-            height="400"
+            width="270"
+            height="240"
             downloadAsImage={downloadAsImage}
           />
         </TabPane>
@@ -41,8 +41,8 @@ const AllChart = ({ datasets, legend, timeline }) => {
             dataSet={datasets}
             legend={legend}
             timeLine={timeline}
-            width="400"
-            height="400"
+            width="270"
+            height="240"
             downloadAsImage={downloadAsImage}
           />
         </TabPane>
