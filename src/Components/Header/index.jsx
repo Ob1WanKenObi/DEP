@@ -7,8 +7,11 @@ const Header = () => {
         <AppHeader>
             <Wrapper>
                 <LogoContainer>
-                    <img src={govlogo} alt="government logo" style={{ width: "60px", height: "50px",marginLeft: "10px"}}/>
+                    <img src={govlogo} alt="government logo" style={{ width: "60px", height: "50px", marginLeft: "10px" }} />
                 </LogoContainer>
+                <h3 style={{ color: "#ffffff" }}>
+                    22x7 Dashboard
+                </h3>
                 <HeaderLinks>
                     <div className="nick-name">
                         Sparsh

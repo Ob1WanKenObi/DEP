@@ -15,15 +15,14 @@ const initialValues = {
 
 
 const API = {
-    URL: 'http://localhost:8000/',
+    URL: 'http://localhost:8000/api/auth/register',
     key: 'password'
 }
 
 const formSubmitHandler = (values) => {
     //Axios post request to API Endpoint
     const data = {
-        name: values.name,
-        email: values.email,
+        username: values.email,
         district: values.district,
         password: values.password
     }
