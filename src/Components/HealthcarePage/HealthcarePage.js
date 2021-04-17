@@ -70,31 +70,42 @@ const dataSource = [
   },
 ];
 const columns = [
-    {
-      title: 'Month',
-      dataIndex: 'Month',
-    },
-    {
-      title: 'Data1',
-      dataIndex: 'd1',
-    },
-    {
-      title: 'Data2',
-      dataIndex: 'd2',
-    },
-    {
-      title: 'Data3',
-      dataIndex: 'd3',
-    },
-    {
-      title: 'Data4',
-      dataIndex: 'd4',
-    },
-    {
-      title: 'Data5',
-      dataIndex: 'd5',
-    },
-  ];
+  {
+    title: 'Month',
+    dataIndex: 'Month',
+    fixed: 'left',
+  },
+  {
+    title: 'Data1',
+    dataIndex: 'd1',
+    sorter: (a, b) => a.d1 - b.d1,
+    sortDirections: ['descend', 'ascend'],
+  },
+  {
+    title: 'Data2',
+    dataIndex: 'd2',
+    sorter: (a, b) => a.d2 - b.d2,
+    sortDirections: ['descend', 'ascend'],
+  },
+  {
+    title: 'Data3',
+    dataIndex: 'd3',
+    sorter: (a, b) => a.d3 - b.d3,
+    sortDirections: ['descend', 'ascend'],
+  },
+  {
+    title: 'Data4',
+    dataIndex: 'd4',
+    sorter: (a, b) => a.d4 - b.d4,
+    sortDirections: ['descend', 'ascend'],
+  },
+  {
+    title: 'Data5',
+    dataIndex: 'd5',
+    sorter: (a, b) => a.d5 - b.d5,
+    sortDirections: ['descend', 'ascend'],
+  },
+];
 
 const HealthcarePage = () => {
     const DataType = ['Vaccination Data', 'Upgradation of Infrastructure', 'National Health Mission Schemes', 'Sarbat Sehat Bima Yojna (SSBY)'];

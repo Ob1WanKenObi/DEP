@@ -18,20 +18,32 @@ const MultiCharts = ({ datasets, legend, timeline, dataSource, columns}) => {
             <ChooseChart timeline={timeline} datasets={datasets} legend={legend} chart = {1} />
         </div>);
     const listData0 = datasets.map((datasets) => 
-    <div className="multi-chart-grid-item">
-        <ChooseChart timeline={timeline} datasets={datasets} legend={legend} chart = {0} />
-    </div>);
+        <div className="multi-chart-grid-item">
+            <ChooseChart timeline={timeline} datasets={datasets} legend={legend} chart = {0} />
+        </div>);
     const listData2 = datasets.map((datasets) => 
-    <div className="multi-chart-grid-item">
-        <ChooseChart timeline={timeline} datasets={datasets} legend={legend} chart = {2} />
-    </div>);
+        <div className="multi-chart-grid-item">
+            <ChooseChart timeline={timeline} datasets={datasets} legend={legend} chart = {2} />
+        </div>);
       
     return (
         <div>
             <Tabs defaultActiveKey="0" onChange={changeHandler} >
                 <TabPane key="0" tab="Table">
                     <div style={{padding: "30px"}}>
-                        <Table columns={columns} dataSource={dataSource} onChange={onChange} />  
+                        <Table 
+                            columns={columns} 
+                            dataSource={dataSource} 
+                            onChange={onChange} 
+                            bordered
+                            title={() => legend}
+                            footer={() => 'The data is updated monthly, so please wait for current data'}
+                            scroll={{ x: 1300 }}
+                            rowClassName = {(record, index) => {
+                                let className = index % 2 ? 'shallow\_gray':'deep\_gray';
+                                return className
+                                }}
+                        />  
                     </div> 
                 </TabPane>
                 <TabPane key="1" tab="Barchart">

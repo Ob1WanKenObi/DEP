@@ -68,6 +68,7 @@ const columns = [
     {
       title: 'Month',
       dataIndex: 'Month',
+      fixed: 'left',
     },
     {
       title: 'Data1',
@@ -78,18 +79,26 @@ const columns = [
     {
       title: 'Data2',
       dataIndex: 'd2',
+      sorter: (a, b) => a.d2 - b.d2,
+      sortDirections: ['descend', 'ascend'],
     },
     {
       title: 'Data3',
       dataIndex: 'd3',
+      sorter: (a, b) => a.d3 - b.d3,
+      sortDirections: ['descend', 'ascend'],
     },
     {
       title: 'Data4',
       dataIndex: 'd4',
+      sorter: (a, b) => a.d4 - b.d4,
+      sortDirections: ['descend', 'ascend'],
     },
     {
       title: 'Data5',
       dataIndex: 'd5',
+      sorter: (a, b) => a.d5 - b.d5,
+      sortDirections: ['descend', 'ascend'],
     },
   ];
 
