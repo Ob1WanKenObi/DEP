@@ -3,7 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import Homepage from '../HomePage/index';
 import GeneralAdmin from '../GeneralAdmin/index';
 import ExcelUpload from '../SheetEntry/index';
-import MultiCharts from '../MultiCharts/MultiCharts';
+
+const timeLine = ['January', 'February', 'March', 'April', 'May'];
+
+const dataset =    [13311, 16344, 12334, 19443, 15224];
 
 const RouteHandler = () => {
     return (

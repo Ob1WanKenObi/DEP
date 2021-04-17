@@ -247,7 +247,7 @@ button + button {
 .grid-container-search {
   width: 100%;
   display: grid;
-  grid-template-columns: 5fr 3fr 3fr 1fr 1fr;
+  grid-template-columns: 5fr 2fr 3fr 3fr 1fr 1fr;
   padding: 1% 2% 1% 2%;
   grid-column-gap: 4%;
   grid-row-gap: 10px;
@@ -322,7 +322,7 @@ button + button {
 .multi-chart-grid-container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   padding: 40px 40px 40px 40px;
   grid-column-gap: 40px;
   grid-row-gap: 40px;
