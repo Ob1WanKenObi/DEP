@@ -7,7 +7,7 @@ const { Sider } = Layout;
 
 export const SideNav = styled(Sider).attrs({
     className: 'side-nav',
-    width: 200,
+    width: 220,
 })`
     font-size: 1rem;
 `;
@@ -26,7 +26,7 @@ export const NavLink = styled(FlexBox)`
     border: ${({ active }) => (active ? '2px solid #fff' : 'none')};
     height: ${({ height }) => height || '3.2em'};
     padding: 0em 0.8em;
-    font-size: 0.8em;
+    font-size: 0.9em;
     background-color: ${({ active }) =>
         active ? 'rgba(255, 255, 255, .1) ' : 'none'};
 `;

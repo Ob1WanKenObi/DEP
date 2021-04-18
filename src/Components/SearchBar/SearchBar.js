@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const yearList = ['2021', '2020'];
-const districts = ["Ropar","d1","d2","d3","d4","d5","d6","d7"];
+const districts = ["Ropar", "d1", "d2", "d3", "d4", "d5", "d6", "d7"];
 
 const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
     const initialValues = {
@@ -79,7 +79,7 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                         <div className="grid-container-search">
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
-                                    <Field as="select" name="DataType" class="input-area-1">
+                                    <Field as="select" name="DataType" className="input-area-1">
                                         {Datatypes.map(datatype =>
                                             <option key={datatype} value={datatype}>{datatype}</option>)}
                                     </Field>
@@ -88,7 +88,7 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                             </div>
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
-                                    <Field as="select" name="District" class="input-area-1">
+                                    <Field as="select" name="District" className="input-area-1">
                                         {districts.map(districts =>
                                             <option key={districts} value={districts}>{districts}</option>)}
                                     </Field>
@@ -97,12 +97,12 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                             </div>
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
-                                    <Field as="select" name="FromMonth" class="input-area-1" style={{ width: "45%", display: "inline", marginRight: "5%" }}>
+                                    <Field as="select" name="FromMonth" className="input-area-1" style={{ width: "45%", display: "inline", marginRight: "5%" }}>
                                         {monthList.map(month =>
                                             <option key={month} value={month}>{month}</option>)}
                                     </Field>
 
-                                    <Field as="select" name="FromYear" class="input-area-1" style={{ width: "45%", display: "inline", marginLeft: "5%" }}>
+                                    <Field as="select" name="FromYear" className="input-area-1" style={{ width: "45%", display: "inline", marginLeft: "5%" }}>
                                         {yearList.map(year =>
                                             <option key={year} value={year}>{year}</option>)}
                                     </Field>
@@ -111,12 +111,12 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                             </div>
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
-                                    <Field as="select" name="ToMonth" class="input-area-1" style={{ width: "45%", display: "inline", marginRight: "5%" }}>
+                                    <Field as="select" name="ToMonth" className="input-area-1" style={{ width: "45%", display: "inline", marginRight: "5%" }}>
                                         {monthList.map(month =>
                                             <option key={month} value={month}>{month}</option>)}
                                     </Field>
 
-                                    <Field as="select" name="ToYear" class="input-area-1" style={{ width: "45%", display: "inline", marginLeft: "5%" }}>
+                                    <Field as="select" name="ToYear" className="input-area-1" style={{ width: "45%", display: "inline", marginLeft: "5%" }}>
                                         {yearList.map(year =>
                                             <option key={year} value={year}>{year}</option>)}
                                     </Field>
