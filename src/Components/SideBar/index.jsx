@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Link, Redirect } from 'react-router-dom';
 import FlexBox from '../FlexBox/index';
 import {
     LinkContainer,
@@ -47,12 +47,13 @@ const modules = [
     },
     {
         name: 'Delete/Update Data',
-        link: '/app/quick-start',
+        link: '/app/quick',
         items: 0,
     },
 ];
 
 const SideBar = () => {
+    const [isLogin, setisLogin] = useState(true);
 
     const logoutHandler = () => {
         axios.post("http://localhost:8000/api/auth/logout", {})
@@ -61,14 +62,15 @@ const SideBar = () => {
             })
             .catch((err) => {
                 console.log(err);
+                setisLogin(false);
             });
     }
 
     return (
-        <SideNav>
+        isLogin === false ? <Redirect to="/" /> : <SideNav>
             <div>
                 <LinkContainer>
-                    <StyledLink to="/">
+                    <StyledLink to="/homepage">
                         <NavLink >
                             Home
                         </NavLink>
@@ -109,7 +111,7 @@ const SideBar = () => {
                 <LinkPayment style={{ textAlign: 'center' }}>
                     <FlexBox style={{ marginTop: 10 }}>
                     </FlexBox>
-                    <StyledButton onClick
+                    <StyledButton onClick={logoutHandler}
                         style={{ marginTop: '25px' }}
                     >
                         Logout
