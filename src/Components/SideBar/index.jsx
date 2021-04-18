@@ -13,11 +13,8 @@ import {
     LinkPayment,
     LogoutIcon,
 } from './styles';
+import axios from 'axios';
 
-/**
- * the items values needs to be obtained from user settings/config
- * fetched from waxwing backend
- */
 
 const resources = [
     {
@@ -56,6 +53,17 @@ const modules = [
 ];
 
 const SideBar = () => {
+
+    const logoutHandler = () => {
+        axios.post("http://localhost:8000/api/auth/logout", {})
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
     return (
         <SideNav>
             <div>
@@ -101,7 +109,7 @@ const SideBar = () => {
                 <LinkPayment style={{ textAlign: 'center' }}>
                     <FlexBox style={{ marginTop: 10 }}>
                     </FlexBox>
-                    <StyledButton
+                    <StyledButton onClick
                         style={{ marginTop: '25px' }}
                     >
                         Logout

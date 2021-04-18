@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Alert } from 'antd';
+import { Redirect, Link } from 'react-router-dom';
+import LogIn from '../LogIn/Login';
 
 const initialValues = {
     name: '',
@@ -19,22 +21,6 @@ const API = {
     key: 'password'
 }
 
-const formSubmitHandler = (values) => {
-    //Axios post request to API Endpoint
-    const data = {
-        username: values.email,
-        district: values.district,
-        password: values.password
-    }
-    axios.post(API.URL, data)
-        .then(res => {
-            console.log(res.data);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    console.log(values);
-}
 
 const validationSchema = Yup.object({
     name: Yup.string().required('Required'),
@@ -47,8 +33,35 @@ const validationSchema = Yup.object({
 
 
 const SignUp = () => {
+
+    const [isSignedUp, setIsSignedUp] = useState(false);
+    const formSubmitHandler = (values) => {
+        //Axios post request to API Endpoint
+        const data = {
+            username: values.email,
+            district: values.district,
+            password: values.password
+        }
+        axios.post(API.URL, data)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                if (!err.response) {
+                    console.log(values);
+                    setIsSignedUp(true);
+                    console.log(err);
+                } else {
+                    console.log(values);
+                    setIsSignedUp(true);
+                    console.log(err);
+                }
+            });
+    }
+
+
     return (
-        <Formik
+        isSignedUp === true ? <Redirect to="/" /> : (<Formik
             initialValues={initialValues}
             onSubmit={formSubmitHandler}
             validationSchema={validationSchema}>
@@ -91,9 +104,12 @@ const SignUp = () => {
                         <ErrorMessage name='confirmPassword' />
                     </div>
                     <button type='submit' class="button-basic">SIGN UP</button>
+                    <Link to="/">
+                        Already have an account? Sign in here
+                    </Link>
                 </div>
             </Form>
-        </Formik >
+        </Formik >)
     );
 }
 

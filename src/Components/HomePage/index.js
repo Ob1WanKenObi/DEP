@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PageLayout from '../PageLayout/PageLayout';
-import Homepage from './Homepage';
 import Loader from '../Loader/loader';
 import axios from 'axios';
 import HomePage from './Homepage';
