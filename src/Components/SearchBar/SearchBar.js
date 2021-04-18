@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const yearList = ['2021', '2020'];
-
+const districts = ["Ropar","d1","d2","d3","d4","d5","d6","d7"];
 
 const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
     const initialValues = {
@@ -51,6 +51,11 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                         </div>
                         <div className="grid-item-search d-flex justify-content-center" >
                             <div style={{ width: "100%" }}>
+                                District
+                            </div>
+                        </div>
+                        <div className="grid-item-search d-flex justify-content-center" >
+                            <div style={{ width: "100%" }}>
                                 From
                             </div>
                         </div>
@@ -77,6 +82,15 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                                     <Field as="select" name="DataType" class="input-area-1">
                                         {Datatypes.map(datatype =>
                                             <option key={datatype} value={datatype}>{datatype}</option>)}
+                                    </Field>
+                                    <ErrorMessage name="DataType" />
+                                </div>
+                            </div>
+                            <div className="grid-item-search d-flex justify-content-center" >
+                                <div style={{ width: "100%" }}>
+                                    <Field as="select" name="District" class="input-area-1">
+                                        {districts.map(districts =>
+                                            <option key={districts} value={districts}>{districts}</option>)}
                                     </Field>
                                     <ErrorMessage name="DataType" />
                                 </div>

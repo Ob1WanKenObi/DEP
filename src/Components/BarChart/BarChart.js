@@ -4,19 +4,26 @@ import { Button } from 'antd';
 
 const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage }) => {
 
-    let chartReference = React.createRef();
-    const bgColor = ['rgba(255, 99, 132, 0.9)',
-        'rgba(54, 162, 235, 0.9)',
-        'rgba(255, 206, 86, 0.9)',
-        'rgba(75, 192, 192, 0.9)',
-        'rgba(153, 102, 255, 0.9)',
-        'rgba(255, 159, 64, 0.9)'];
-    let backgroundColor = [...bgColor];
-    let n = dataSet.length / 6;
-
-    for (let i = 0; i < n; i++) {
-        backgroundColor = [...backgroundColor, ...bgColor];
+    function rainbow(numOfSteps, step) {
+        var r, g, b;
+        var h = step / numOfSteps;
+        var i = ~~(h * 6);
+        var f = h * 6 - i;
+        var q = 1 - f;
+        switch (i % 6) {
+            case 0: r = 1; g = f; b = 0; break;
+            case 1: r = q; g = 1; b = 0; break;
+            case 2: r = 0; g = 1; b = f; break;
+            case 3: r = 0; g = q; b = 1; break;
+            case 4: r = f; g = 0; b = 1; break;
+            case 5: r = 1; g = 0; b = q; break;
+        }
+        var c = "#" + ("00" + (~ ~(r * 255)).toString(16)).slice(-2) + ("00" + (~ ~(g * 255)).toString(16)).slice(-2) + ("00" + (~ ~(b * 255)).toString(16)).slice(-2);
+        return (c);
     }
+
+    let chartReference = React.createRef();
+    const bgColor = dataSet.map((data, index) => rainbow(dataSet.length, index + 1));
 
     const chart = (<Bar
         data={{
@@ -26,7 +33,7 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
                     label: legend,
                     data: dataSet,
                     borderWidth: 1,
-                    backgroundColor: backgroundColor,
+                    backgroundColor: bgColor,
                 }
             ]
         }}
