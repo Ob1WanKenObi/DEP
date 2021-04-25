@@ -15,7 +15,7 @@ const RouteHandler = () => {
             <Route path="/homepage" exact component={Homepage} />
             <Route path="/upload-sheet" component={ExcelUpload} />
             <Route path="/*" render={() => <h1>Page Not Found</h1>} />
-        </Switch>
+        </Switch>  
     );
 }
 

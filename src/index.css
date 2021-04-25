@@ -113,28 +113,6 @@ a {
   border-color: red;
 }
 
-
-.input-area-2 {
-  padding: .5rem;
-  font-size: 16px;
-  width: 80%;
-  display: block;
-  border-radius: 4px;
-  border: 1px solid black;
-  margin-bottom: 5px;
-}
-
-.input-area-2:focus {
-  border-color: orange;
-  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075),
-    0 0 0 3px rgba(0, 126, 255, 0.1);
-  outline: none;
-}
-
-.input-area-2.error {
-  border-color: red;
-}
-
 .select-area-1 {
   padding: .5rem;
   font-size: 16px;
@@ -149,6 +127,7 @@ a {
 .label-normal {
   font-weight: bold;
   display: block;
+  margin-top: .4rem;;
   margin-bottom: .5rem;
   color: black;
 }
@@ -186,25 +165,6 @@ button + button {
 
 .needbg {
   background-image: url('./common/images/signin.svg');
-}
-
-.app-scroll {
-  &::-webkit-scrollbar {
-      width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-      display: none;
-  }
-
-  &::-webkit-scrollbar-thumb {
-      border-radius: 5px;
-      background-color: rgba(230, 227, 227, 0.2);
-
-      &:hover {
-          background-color: rgba(230, 227, 227, 0.3);
-      }
-  }
 }
 
 .app-content {
@@ -387,4 +347,102 @@ thead[class*="ant-table-thead"] th{
 .ant-table-tbody > tr:hover > td {
   color: #fff;
   background-color: #595959 !important;
+}
+
+.sheetentry-main {
+  padding: 7% 17%;
+}
+
+.sheetentry-minor {
+  padding: 3% 3%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+.sheetentry-minor:hover {
+  box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.input-area-2 {
+  padding: .5rem;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  border: 1px solid #c7c7c7;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.input-area-2:focus {
+  border-color: skyblue;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075),
+    0 0 0 3px rgba(0, 126, 255, 0.1);
+  outline: none;
+}
+
+.button-special {
+  width: 25%;
+  margin: 8px 0px 0px 0px;
+  padding: 6px 10px;
+  background-color: #252540;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.button-special:hover {
+  background-color: #2e3b70;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+input[type=file]::-webkit-file-upload-button {
+  background-color: #252540;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+  background-color: #2e3b70;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-main {
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.button-login {
+  width: 25%;
+  margin: 8px 0px 0px 0px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background-color: black;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-login:hover {
+  background-color: #2e3b70;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.15);
 }

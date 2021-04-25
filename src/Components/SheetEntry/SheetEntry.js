@@ -3,10 +3,12 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { message } from 'antd';
 import * as Yup from 'yup';
 import axios from 'axios';
+import bgg from '../../common/images/signin.svg';
+import test from '../../common/images/test.jpg';
+import test2 from '../../common/images/test2.webp';
 
 const initialValues = {
     legend: '',
-    ChartType: 'Barchart',
 }
 
 const API = {
@@ -52,21 +54,22 @@ const SheetEntry = (props) => {
         initialValues={initialValues}
         onSubmit={(values) => formSubmitHandler(values)}
         validationSchema={validationSchema} >
-        <Form
-            style={{ display: "grid", gridTemplateColumns: "1fr 4fr 1fr", }}
-            labelCol={{ xs: 4 }}
-            wrapperCol={{ xs: 20 }}
-        >
-
-            <div style={{ flex: 1 }} />
-            <div style={{ background: "#e1e1f5", flex: 1, padding: 40, borderRadius: "20px", marginTop: "60px" }}>
+        <Form>
+            <div className="sheetentry-main">
+                <div className="sheetentry-minor" style={{background: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",backgroundRepeat: 'False'}}>
                 <div>
-                    <h1 class="minor-heading-3"><u>Upload Excel File Here: </u></h1>
+                    <h1 class="minor-heading-3">Upload Excel File Here:</h1>
                 </div>
-                <div >
+                <div>
                     <label htmlFor='legend' class="label-normal">Data Type</label>
                     <Field id='legend' name='legend' class="input-area-2" />
-                    <ErrorMessage name='legend' render={error => <div style={{ color: "#ff0000" }}>{error}</div>} />
+                    <ErrorMessage name='legend' render={error => 
+                        <div style={{ color: "white"}}>
+                            <span style={{backgroundColor: "red", borderLeft: "4px solid white",  padding: "2px 5px"}}>
+                                {error}
+                            </span>
+                        </div>} 
+                    />
                 </div>
                 <div>
                     <label htmlFor='excel' class="label-normal">Excel</label>
@@ -75,22 +78,14 @@ const SheetEntry = (props) => {
                         name='excel'
                         class="input-area-2"
                         onChange={fileChangedHandler}
-                        style={{ border: "1px solid black" }}
                         accept=".xlsx,.xls,.csv" />
-                    <span>File Format: .csv, Maximum file size: 25mb</span>
+                    <span style={{color: "black", backgroundColor: "#a4affc", borderLeft: "4px solid #252540", padding: "2px 5px"}}>File Format: .csv, Maximum file size: 25mb</span>
                     {/* <ErrorMessage name='excel' /> */}
                 </div>
-                <div>
-                    <label htmlFor="ChartType" class="label-normal">Chart Type</label>
-                    <Field as="select" name="ChartType" class="input-area-2">
-                        <option value="Barchart" selected >Bar-chart</option>
-                        <option value="Linechart">Line-chart</option>
-                        <option value="Doughnoutchart">Doughnout-chart</option>
-                    </Field>
-                </div>
                 <div className="d-flex justify-content-center">
-                    <button type='submit' class="button-basic" style={{ width: "25%" }}>SUBMIT</button>
+                    <button type='submit' class="button-special">SUBMIT</button>
                 </div>
+            </div>
             </div>
         </Form>
     </Formik >);

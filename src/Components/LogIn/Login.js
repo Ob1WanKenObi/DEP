@@ -3,6 +3,10 @@ import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Redirect, Link } from 'react-router-dom';
+import bgg from '../../common/images/signin.svg';
+import {LoginOutlined} from '@ant-design/icons';
+
+
 const initialValues = {
     email: '',
     password: '',
@@ -50,30 +54,42 @@ const LogIn = () => {
                 initialValues={initialValues}
                 onSubmit={(values) => formSubmitHandler(values)}
                 validationSchema={validationSchema}>
-                <Form
-                    labelcol={{ xs: 4 }}
-                    wrappercol={{ xs: 20 }}
-                >
-                    <div style={{ flex: "1", width: "100%", height: "800px", alignContent: "center", classname: "needbg" }}>
-                        <br /><br /><br /><br /><br />
-                        <div style={{ background: "#e1e1f5", flex: 1, padding: 40, borderRadius: "20px", width: "40%", alignSelf: "center", marginLeft: "30%", marginTop: "0px" }}>
-                            <h2 className="minor-heading-3"><u>Log in to use the website</u></h2><br></br>
+                <Form>
+                    <div className="login-main" style={{background: `url(${bgg}) no-repeat center center fixed`}}>
+                        <div style={{padding: "3%", border: "2px solid black",borderRadius: "10px", width: "40%", marginLeft: "30%", marginTop: "0px", boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" }}>
+                            <h2 className="minor-heading-3">Log in to use the website</h2>
 
                             <div>
                                 <label htmlFor='email' className="label-normal">Email</label>
                                 <Field type='email' id='email' name='email' className='input-area-1' />
-                                <ErrorMessage name='email' />
+                                <ErrorMessage name='email' render={error => 
+                                    <div style={{ color: "red"}}>
+                                        <span style={{backgroundColor: "#ededed", borderLeft: "4px solid red",  padding: "2px 5px"}}>
+                                            {error}
+                                        </span>
+                                    </div>} 
+                                />
                             </div>
 
                             <div>
                                 <label htmlFor='password' className="label-normal">Password</label>
                                 <Field type='password' id='password' name='password' className='input-area-1' />
-                                <ErrorMessage name='password' />
+                                <ErrorMessage name='password' render={error => 
+                                    <div style={{ color: "red"}}>
+                                        <span style={{backgroundColor: "#ededed", borderLeft: "4px solid red",  padding: "2px 5px"}}>
+                                            {error}
+                                        </span>
+                                    </div>} 
+                                />
                             </div>
-                            <button type='submit' className="button-basic">LOG IN</button>
-                            <Link to="/register">
-                                Don't have an account ? Create here
-                            </Link>
+                            <div style={{width: "100%",display: "flex", justifyContent: "center"}}>
+                                <button type='submit' className="button-login"><LoginOutlined /> LOGIN</button>
+                            </div>
+                            <div style={{width: "100%",marginTop: "7px"}}>
+                                <Link to="/register">
+                                    Don't have an account ? Create here
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </Form>
