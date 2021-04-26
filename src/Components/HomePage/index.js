@@ -18,13 +18,11 @@ const index = (props) => {
     }, []);
 
     if (loading) {
-        console.log("Load kar bhai");
         return <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
             <Loader />
         </div>
     } else {
         if (!jwt) {
-            console.log('Redirected');
             return <Redirect to='/' />
         }
     }
