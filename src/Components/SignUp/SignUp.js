@@ -4,6 +4,9 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { Alert } from 'antd';
 import { Redirect, Link } from 'react-router-dom';
+import LogIn from '../LogIn/Login';
+import bgg from '../../common/images/signin.svg';
+import { LoginOutlined } from '@ant-design/icons';
 
 const initialValues = {
     name: '',
@@ -67,48 +70,79 @@ const SignUp = () => {
             initialValues={initialValues}
             onSubmit={formSubmitHandler}
             validationSchema={validationSchema}>
-            <Form
-                style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
-                labelcol={{ xs: 4 }}
-                wrappercol={{ xs: 20 }}
-            >
-                <div style={{ flex: 1 }} />
-                <div style={{ background: "#e1e1f5", flex: 1, padding: 40, borderRadius: "20px" }}>
+            <Form>
+                <div className="login-main" style={{ background: `url(${bgg}) no-repeat center center fixed` }}>
+                    <div style={{ padding: "3%", border: "2px solid black", borderRadius: "10px", width: "40%", marginLeft: "30%", marginTop: "0px", boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" }}>
+                        <h2 className="minor-heading-3">Sign Up to use the website</h2>
 
-                    <h2 className="minor-heading-3">Sign Up to use the website</h2>
-                    <div >
-                        <label htmlFor='name' className="label-normal">Name</label>
-                        <Field type='name' id='name' name='name' className='input-area-1' />
-                        <ErrorMessage render={text => <Alert message={text} showIcon type='warning' />} name='name' />
-                    </div>
+                        <div>
+                            <label htmlFor='name' class="label-normal">Name</label>
+                            <Field type='name' id='name' name='name' class='input-area-1' />
+                            <ErrorMessage name='name' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "#ededed", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
 
-                    <div>
-                        <label htmlFor='email' className="label-normal">Email</label>
-                        <Field type='email' id='email' name='email' className='input-area-1' />
-                        <ErrorMessage name='email' />
-                    </div>
+                        <div>
+                            <label htmlFor='email' class="label-normal">Email</label>
+                            <Field type='email' id='email' name='email' class='input-area-1' />
+                            <ErrorMessage name='email' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "#ededed", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
 
-                    <div>
-                        <label htmlFor='district' className="label-normal">District</label>
-                        <Field type='text' id='district' name='district' className='input-area-1' />
-                        <ErrorMessage name='district' />
-                    </div>
+                        <div>
+                            <label htmlFor='district' class="label-normal">District</label>
+                            <Field type='text' id='district' name='district' class='input-area-1' />
+                            <ErrorMessage name='name' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "#ededed", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
 
-                    <div>
-                        <label htmlFor='password' className="label-normal">Password</label>
-                        <Field type='password' id='password' name='password' className='input-area-1' />
-                        <ErrorMessage name='password' />
-                    </div>
+                        <div>
+                            <label htmlFor='password' class="label-normal">Password</label>
+                            <Field type='password' id='password' name='password' class='input-area-1' />
+                            <ErrorMessage name='password' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "#ededed", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
 
-                    <div>
-                        <label htmlFor='confirmPassword' className="label-normal">Confirm Password</label>
-                        <Field type='password' id='confirmPassword' name='confirmPassword' className='input-area-1' />
-                        <ErrorMessage name='confirmPassword' />
+                        <div>
+                            <label htmlFor='confirmPassword' class="label-normal">Confirm Password</label>
+                            <Field type='password' id='confirmPassword' name='confirmPassword' class='input-area-1' />
+                            <ErrorMessage name='confirmPassword' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "#ededed", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
+                        <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                            <button type='submit' className="button-login"><LoginOutlined /> Sign Up</button>
+                        </div>
+                        <div style={{ width: "100%", marginTop: "7px" }}>
+                            <Link to="/">
+                                Already have an account ? Login here
+                        </Link>
+                        </div>
                     </div>
-                    <button type='submit' className="button-basic">SIGN UP</button>
-                    <Link to="/">
-                        Already have an account? Sign in here
-                    </Link>
                 </div>
             </Form>
         </Formik >)
