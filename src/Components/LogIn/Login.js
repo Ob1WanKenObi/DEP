@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -13,7 +13,7 @@ const initialValues = {
 }
 
 const API = {
-    URL: 'http://localhost:8000/api/auth/login',
+    URL: 'http://127.0.0.1:8000/api/auth/login',
     key: 'password'
 }
 
@@ -24,28 +24,44 @@ const validationSchema = Yup.object({
     password: Yup.string().min(6, 'Password is too short').max('20', 'Password is too long').required('Required'),
 });
 
-
-
 const LogIn = () => {
 
     const [isLogin, setIsLogin] = useState(false);
 
-    const formSubmitHandler = (values) => {
-        axios.defaults.withCredentials = true;
-        const data = {
-            username: values.email,
-            password: values.password,
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token !== null && token !== undefined) {
+            console.log(isLogin);
+            console.log('If accessed');
+            setIsLogin(true);
         }
-        axios.post(API.URL, data)
-            .then(res => {
-                console.log(res.data);
+    }, [])
 
-            })
-            .catch(err => {
-                console.log(err);
+    const formSubmitHandler = (values) => {
+        axios({
+            method: "post",
+            url: API.URL,
+            data: {
+                username: values.email,
+                password: values.password,
+            },
+            withCredentials: true,
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(res => {
+                localStorage.setItem('token', res.data);
                 setIsLogin(true);
+            })
+            .catch(e => {
+                status = e.response.status;
+                if (status == 404) {
+                    alert("user not found, signup first");
+                } else if (status == 403) {
+                    alert("Wrong Password");
+                } else {
+                    alert("something went wrong please try again");
+                }
             });
-        console.log(values);
     }
 
     return (
