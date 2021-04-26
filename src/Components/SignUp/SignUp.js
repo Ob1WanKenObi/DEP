@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Alert } from 'antd';
 import { Redirect, Link } from 'react-router-dom';
-import LogIn from '../LogIn/Login';
 
 const initialValues = {
     name: '',
@@ -17,7 +16,7 @@ const initialValues = {
 
 
 const API = {
-    URL: 'http://localhost:8000/api/auth/register',
+    URL: 'http://127.0.0.1:8000/api/auth/register',
     key: 'password'
 }
 
@@ -35,26 +34,29 @@ const validationSchema = Yup.object({
 const SignUp = () => {
 
     const [isSignedUp, setIsSignedUp] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token !== null && token !== undefined) {
+            setIsSignedUp(true);
+        }
+    }, []);
+
     const formSubmitHandler = (values) => {
-        //Axios post request to API Endpoint
         const data = {
             username: values.email,
-            district: values.district,
             password: values.password
         }
         axios.post(API.URL, data)
-            .then(res => {
-                console.log(res.data);
+            .then(() => {
+                alert("Account Created ! You can Login Now");
             })
-            .catch(err => {
-                if (!err.response) {
-                    console.log(values);
-                    setIsSignedUp(true);
-                    console.log(err);
+            .catch((e) => {
+                status = e.response.status;
+                if (status == 409) {
+                    alert("username already present");
                 } else {
-                    console.log(values);
-                    setIsSignedUp(true);
-                    console.log(err);
+                    alert("Something went wrong");
                 }
             });
     }
@@ -67,43 +69,43 @@ const SignUp = () => {
             validationSchema={validationSchema}>
             <Form
                 style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
-                labelCol={{ xs: 4 }}
-                wrapperCol={{ xs: 20 }}
+                labelcol={{ xs: 4 }}
+                wrappercol={{ xs: 20 }}
             >
                 <div style={{ flex: 1 }} />
                 <div style={{ background: "#e1e1f5", flex: 1, padding: 40, borderRadius: "20px" }}>
 
-                    <h2 class="minor-heading-3">Sign Up to use the website</h2>
+                    <h2 className="minor-heading-3">Sign Up to use the website</h2>
                     <div >
-                        <label htmlFor='name' class="label-normal">Name</label>
-                        <Field type='name' id='name' name='name' class='input-area-1' />
+                        <label htmlFor='name' className="label-normal">Name</label>
+                        <Field type='name' id='name' name='name' className='input-area-1' />
                         <ErrorMessage render={text => <Alert message={text} showIcon type='warning' />} name='name' />
                     </div>
 
                     <div>
-                        <label htmlFor='email' class="label-normal">Email</label>
-                        <Field type='email' id='email' name='email' class='input-area-1' />
+                        <label htmlFor='email' className="label-normal">Email</label>
+                        <Field type='email' id='email' name='email' className='input-area-1' />
                         <ErrorMessage name='email' />
                     </div>
 
                     <div>
-                        <label htmlFor='district' class="label-normal">District</label>
-                        <Field type='text' id='district' name='district' class='input-area-1' />
+                        <label htmlFor='district' className="label-normal">District</label>
+                        <Field type='text' id='district' name='district' className='input-area-1' />
                         <ErrorMessage name='district' />
                     </div>
 
                     <div>
-                        <label htmlFor='password' class="label-normal">Password</label>
-                        <Field type='password' id='password' name='password' class='input-area-1' />
+                        <label htmlFor='password' className="label-normal">Password</label>
+                        <Field type='password' id='password' name='password' className='input-area-1' />
                         <ErrorMessage name='password' />
                     </div>
 
                     <div>
-                        <label htmlFor='confirmPassword' class="label-normal">Confirm Password</label>
-                        <Field type='password' id='confirmPassword' name='confirmPassword' class='input-area-1' />
+                        <label htmlFor='confirmPassword' className="label-normal">Confirm Password</label>
+                        <Field type='password' id='confirmPassword' name='confirmPassword' className='input-area-1' />
                         <ErrorMessage name='confirmPassword' />
                     </div>
-                    <button type='submit' class="button-basic">SIGN UP</button>
+                    <button type='submit' className="button-basic">SIGN UP</button>
                     <Link to="/">
                         Already have an account? Sign in here
                     </Link>

@@ -35,35 +35,21 @@ const resources = [
     },
 ];
 const modules = [
-    {
-        name: 'Create Data Entry',
-        link: '/app/quick-start',
-        items: 0,
-    },
+
     {
         name: 'Upload Excel file',
         link: '/upload-sheet',
         items: 0,
     },
-    {
-        name: 'Delete/Update Data',
-        link: '/app/quick',
-        items: 0,
-    },
+
 ];
 
 const SideBar = () => {
-    const [isLogin, setisLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(true);
 
     const logoutHandler = () => {
-        axios.post("http://localhost:8000/api/auth/logout", {})
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((err) => {
-                console.log(err);
-                setisLogin(false);
-            });
+        localStorage.removeItem('token')
+        setIsLogin(false);
     }
 
     return (
