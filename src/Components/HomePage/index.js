@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PageLayout from '../PageLayout/PageLayout';
 import Loader from '../Loader/loader';
-import HomePage from './Homepage';
+import HomePage from './HomePage';
 import { Redirect } from 'react-router-dom';
 
 const index = (props) => {
