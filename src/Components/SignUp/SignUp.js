@@ -68,7 +68,7 @@ const SignUp = () => {
             onSubmit={formSubmitHandler}
             validationSchema={validationSchema}>
             <Form>
-                    <div className="login-main" style={{background: `url(${bgg}) no-repeat center center fixed`}}>
+            <div className="login-main" style={{background: `linear-gradient(45deg, #b5ffdb 0%, #ffffff 50%,#ffd1a6 100%)`}}> {/*`url(${bgg}) no-repeat center center fixed`*/}
                         <div style={{padding: "3%", border: "2px solid black",borderRadius: "10px", width: "40%", marginLeft: "30%", marginTop: "0px", boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" }}>
                             <h2 className="minor-heading-3">Sign Up to use the website</h2>
 

@@ -56,7 +56,7 @@ const SheetEntry = (props) => {
         validationSchema={validationSchema} >
         <Form>
             <div className="sheetentry-main">
-                <div className="sheetentry-minor" style={{background: "linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)",backgroundRepeat: 'False'}}>
+                <div className="sheetentry-minor" style={{background: "linear-gradient(62deg, #ebebeb 0%, #d1d1d1 100%)",backgroundRepeat: 'False'}}>
                 <div>
                     <h1 class="minor-heading-3">Upload Excel File Here:</h1>
                 </div>
@@ -79,7 +79,7 @@ const SheetEntry = (props) => {
                         class="input-area-2"
                         onChange={fileChangedHandler}
                         accept=".xlsx,.xls,.csv" />
-                    <span style={{color: "black", backgroundColor: "#a4affc", borderLeft: "4px solid #252540", padding: "2px 5px"}}>File Format: .csv, Maximum file size: 25mb</span>
+                    <span style={{color: "black", backgroundColor: "#ffffff", borderLeft: "4px solid #252540", padding: "2px 5px"}}>File Format: .csv, Maximum file size: 25mb</span>
                     {/* <ErrorMessage name='excel' /> */}
                 </div>
                 <div className="d-flex justify-content-center">
