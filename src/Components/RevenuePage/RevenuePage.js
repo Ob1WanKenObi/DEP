@@ -100,7 +100,7 @@ const columns = [
       sorter: (a, b) => a.d5 - b.d5,
       sortDirections: ['descend', 'ascend'],
     },
-  ];
+];
 
 const RevenuePage = () => {
     const DataType = ['Collection of Excise', 'Collection of GST', 'Collection of Motor Vehicle Tax', 'Collection of Stamp Duty'];
