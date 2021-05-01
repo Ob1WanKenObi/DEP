@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { object } from 'yup/lib/locale';
 
 const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const yearList = ['2021', '2020'];
@@ -32,8 +33,22 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
         }
         axios.get(`${API.URL}customquery/?start_year=${data.FromYear}&start_month=${data.FromMonth}&end_year=${data.ToYear}&end_month=${data.ToMonth}&district=${data.district}&tablename=${data.DataType}`)
             .then(response => {
-                console.log(response);
-                typeOfDataHandler(data.DataType, response.data);
+                
+                console.log(response.data);
+                const keyarray = Object.keys(response.data[0]);
+                const columns = keyarray.map(
+                    keys => 
+                    ({
+                        title: keys,
+                        dataIndex: keys,
+                    })
+                );
+                console.log(columns);
+                const dataSource = response.data.map((row,index) => 
+                    ({...row,key: index+1})
+                );
+                console.log(dataSource);
+                typeOfDataHandler(data.DataType, response.data, columns, dataSource);
             })
             .catch(err => {
                 console.log(err);
