@@ -113,7 +113,7 @@ const SheetEntry = (props) => {
                     />
                 </div>
                 <div>
-                    <Field as="select" id='legend2' name='legend2' className="input-area-2" onChange={handle3}>
+                    <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3}>
                         {select2.map(select2 =><option key={select2} value={select2}>{select2}</option>)}
                     </Field>
                     <ErrorMessage name='legend2' render={error => 
