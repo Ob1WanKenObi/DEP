@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -6,7 +6,7 @@ import { Alert } from 'antd';
 import { Redirect, Link } from 'react-router-dom';
 import LogIn from '../LogIn/Login';
 import bgg from '../../common/images/signin.svg';
-import {LoginOutlined} from '@ant-design/icons';
+import { LoginOutlined } from '@ant-design/icons';
 
 const initialValues = {
     name: '',
@@ -19,7 +19,7 @@ const initialValues = {
 
 
 const API = {
-    URL: 'http://localhost:8000/api/auth/register',
+    URL: 'http://127.0.0.1:8000/api/auth/register',
     key: 'password'
 }
 
@@ -37,26 +37,29 @@ const validationSchema = Yup.object({
 const SignUp = () => {
 
     const [isSignedUp, setIsSignedUp] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token !== null && token !== undefined) {
+            setIsSignedUp(true);
+        }
+    }, []);
+
     const formSubmitHandler = (values) => {
-        //Axios post request to API Endpoint
         const data = {
             username: values.email,
-            district: values.district,
             password: values.password
         }
         axios.post(API.URL, data)
-            .then(res => {
-                console.log(res.data);
+            .then(() => {
+                alert("Account Created ! You can Login Now");
             })
-            .catch(err => {
-                if (!err.response) {
-                    console.log(values);
-                    setIsSignedUp(true);
-                    console.log(err);
+            .catch((e) => {
+                status = e.response.status;
+                if (status == 409) {
+                    alert("username already present");
                 } else {
-                    console.log(values);
-                    setIsSignedUp(true);
-                    console.log(err);
+                    alert("Something went wrong");
                 }
             });
     }
@@ -138,10 +141,10 @@ const SignUp = () => {
                         <Link to="/">
                             Already have an account ? Login here
                         </Link>
+                        </div>
                     </div>
-                    </div>
-                    </div>
-                </Form>
+                </div>
+            </Form>
         </Formik >)
     );
 }

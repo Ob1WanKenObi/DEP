@@ -2,33 +2,32 @@ import React, { useState, useEffect } from 'react';
 import PageLayout from '../PageLayout/PageLayout';
 import GeneralAdmin from './GeneralAdmin';
 import Loader from '../Loader/loader';
-import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 const index = (props) => {
-    const [isLogin, setIsLogin] = useState(true);
+    const [loading, setLoading] = useState(true);
+    const [jwt, setJwt] = useState(false);
     useEffect(() => {
-        axios.get('http://localhost:8000/api/auth/user')
-            .then(response => {
-                setIsLogin(true);
-            })
-            .catch(err => {
-                console.log("lol");
-            })
+        const token = localStorage.getItem('token');
+        if (token !== null && token !== undefined) {
+            setJwt(true);
+        }
+        setLoading(false);
     }, []);
-    let pageView =
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+    if (loading) {
+        return <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
             <Loader />
         </div>
-    if (isLogin === true) {
-        pageView = (
-            <PageLayout {...props}>
+    } else {
+        if (!jwt) {
+            return <Redirect to='/' />
+        }
+        else {
+            return (<PageLayout {...props}>
                 <GeneralAdmin />
-            </PageLayout>
-        );
+            </PageLayout>);
+        }
     }
-    return (
-        pageView
-    );
 }
 
 export default index;
