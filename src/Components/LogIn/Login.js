@@ -83,7 +83,7 @@ const LogIn = () => {
                                 />
                             </div>
                             <div style={{width: "100%",display: "flex", justifyContent: "center"}}>
-                                <button type='submit' className="button-login"><LoginOutlined /> LOGIN</button>
+                                <button type='submit' className="button-login">LOGIN</button>
                             </div>
                             <div style={{width: "100%",marginTop: "7px"}}>
                                 <Link to="/register">
