@@ -43,21 +43,30 @@ const SheetEntry = (props) => {
 
     const [selectedFile, setSelectedFile] = useState(null);
 
-    const handle3 = (event) => {
+    const [sample, setSample] = useState(bgg);
+
+    const handleSample = (event) => {
         const legend2 = event.target.value;
-        if (legend2 == select2[0]) {
+        if      (legend2 == select3_0[0]) {setSample(test);}
+        else if (legend2 == select3_0[1]) {setSample(test2);}
+        else                            {setSample(bgg);} 
+    }
+
+    const handle3 = (event) => {
+        const check = event.target.value;
+        if (check == select2[0]) {
             setactiveselect(select3_0);
         }
-        else if (legend2 == select2[1]) {
+        else if (check == select2[1]) {
             setactiveselect(select3_1);
         }
-        else if (legend2 == select2[2]) {
+        else if (check == select2[2]) {
             setactiveselect(select3_2);
         }
-        else if (legend2 == select2[3]) {
+        else if (check == select2[3]) {
             setactiveselect(select3_3);
         }
-        else if (legend2 == select2[4]) {
+        else if (check == select2[4]) {
             setactiveselect(select3_4);
         }
         else {
@@ -99,42 +108,50 @@ const SheetEntry = (props) => {
                 <div>
                     <h1 className="minor-heading-3">Upload Excel File Here:</h1>
                 </div>
-                <div>
                     <label htmlFor='legend1' className="label-normal">Data Type</label>
-                    <Field as="select" id='legend1' name='legend1' className="input-area-2">
-                        {select1.map(select1 =><option key={select1} value={select1}>{select1}</option>)}
-                    </Field>
-                    <ErrorMessage name='legend1' render={error => 
-                        <div style={{ color: "red"}}>
-                            <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
-                                {error}
-                            </span>
-                        </div>} 
-                    />
+                <div style={{ display: "inline", overflow: "hidden", display: "flex",flexFlow: "row wrap"}}>
+                    <div  style={{width: "33%"}}>
+                        <Field as="select" id='legend1' name='legend1' className="input-area-2" >
+                            {select1.map(select1 =><option key={select1} value={select1}>{select1}</option>)}
+                        </Field>
+                        <ErrorMessage name='legend1' render={error => 
+                            <div style={{ color: "red"}}>
+                                <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
+                                    {error}
+                                </span>
+                            </div>} 
+                        />
+                    </div>
+                    <div  style={{width: "33%"}}>
+                        <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3} >
+                            {select2.map(select2 =><option key={select2} value={select2}>{select2}</option>)}
+                        </Field>
+                        <ErrorMessage name='legend2' render={error => 
+                            <div style={{ color: "red"}}>
+                                <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
+                                    {error}
+                                </span>
+                            </div>} 
+                        />
+                    </div>
+                    <div  style={{width: "34%"}}>
+                        <Field as="select" id='legend3' name='legend3' className="input-area-2" onClick={handleSample}>
+                            {activeselect.map(activeselect =><option key={activeselect} value={activeselect}>{activeselect}</option>)}
+                        </Field>
+                        <ErrorMessage name='legend3' render={error => 
+                            <div style={{ color: "red"}}>
+                                <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
+                                    {error}
+                                </span>
+                            </div>} 
+                        />
+                    </div>
                 </div>
                 <div>
-                    <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3}>
-                        {select2.map(select2 =><option key={select2} value={select2}>{select2}</option>)}
-                    </Field>
-                    <ErrorMessage name='legend2' render={error => 
-                        <div style={{ color: "red"}}>
-                            <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
-                                {error}
-                            </span>
-                        </div>} 
-                    />
-                </div>
-                <div>
-                    <Field as="select" id='legend3' name='legend3' className="input-area-2" >
-                        {activeselect.map(activeselect =><option key={activeselect} value={activeselect}>{activeselect}</option>)}
-                    </Field>
-                    <ErrorMessage name='legend3' render={error => 
-                        <div style={{ color: "red"}}>
-                            <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
-                                {error}
-                            </span>
-                        </div>} 
-                    />
+                    <label htmlFor='excel' className="label-normal">Sample Excel File:</label>
+                    <div>
+                        <img src={sample} width="100%" height="100px"></img>
+                    </div>
                 </div>
                 <div>
                     <label htmlFor='excel' className="label-normal">Excel</label>
