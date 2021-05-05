@@ -17,7 +17,7 @@ import revenue_gst from '../../common/images/dep_tables/revenue_gst.png';
 import revenue_motor from '../../common/images/dep_tables/revenue_motor.png';
 import revenue_stamp from '../../common/images/dep_tables/revenue_stamp.png';
 import vaccination from '../../common/images/dep_tables/vaccination.png';
-import err from '../../common/images/dep_tables/error.png';
+import err from '../../common/images/dep_tables/err.png';
 
 
 const select1 = ["General Administration", "Development Administration", "Seasonal Work", "Structured Drives and Working"];
@@ -180,20 +180,35 @@ const SheetEntry = (props) => {
                             />
                         </div>
                     </div>
-                    <div>
-                        <label htmlFor='excel' className="label-normal">Sample Excel File:</label>
+                    <div style={{marginTop: "30px"}}>
+                        <label htmlFor='excel' className="label-normal">Sample .CSV File:</label>
                         <div style={{marginBottom: "10px", boxShadow: "4px 4px 4px rgba(0,0,0,0.3)"}}>
                             <img src={sample} width="100%" height="100px"></img>
                         </div>
+                        <div style={{width: "70%", backgroundColor: "#ffffff"}}>
+                            <span style={{ color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
+                                Please ensure that the first row of the document contains the Column names.
+                            </span>
+                        </div>
+                        <div style={{width: "70%", backgroundColor: "#ffffff"}}>
+                            <span style={{  color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
+                                The folloing rows should contain the data as specified in the sample file.
+                            </span>
+                        </div>
+                        <div style={{width: "70%", backgroundColor: "#ffffff"}}>
+                            <span style={{  color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
+                                Make sure there aren't any other cells filled in the document.
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor='excel' className="label-normal">Excel</label>
+                    <div style={{marginTop: "30px"}}>
+                        <label htmlFor='excel' className="label-normal">Upload .CSV File</label>
                         <input type="file"
                             id='excel'
                             name='excel'
                             className="input-area-2"
                             onChange={fileChangedHandler}
-                            accept=".xlsx,.xls,.csv" />
+                            accept=".csv" />
                         <span style={{ color: "black", backgroundColor: "#ffffff", borderLeft: "4px solid #252540", padding: "2px 5px" }}>File Format: .csv, Maximum file size: 25mb</span>
                         {/* <ErrorMessage name='excel' /> */}
                     </div>

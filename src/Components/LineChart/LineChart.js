@@ -25,6 +25,7 @@ const LineChart = ({ timeLine, legend, dataSet, height, width, downloadAsImage }
         ref={chartReference}
         options={
             {
+                responsive: false,
                 maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
