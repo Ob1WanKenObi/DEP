@@ -2,12 +2,16 @@ import React from 'react';
 import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { object } from 'yup/lib/locale';
 
 const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const yearList = ['2021', '2020'];
-const districts = ["Ropar", "chd", "d2", "d3", "d4", "d5", "d6", "d7"];
-
+const yearList = [2021, 2020]
+const districts = ['Amritsar', 'Barnala', 'Bhatinda',
+    'Faridkot', 'Fatehgarh Sahib', 'Fazilka',
+    'Ferozepur', 'Gurdaspur', 'Hoshiarpur',
+    'Jalandhar', 'Kapurthala', 'Ludhiana',
+    'Mansa', 'Moga', 'Muktsar', 'Nawanshahr',
+    "Pathankot", "Patiala", "Ropar",
+    'Mohali', "Sangrur", "Tarn Taran"];
 const API = {
     URL: 'http://127.0.0.1:8000/',
 }
@@ -19,6 +23,7 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
         FromYear: yearList[0],
         ToMonth: 1,
         ToYear: yearList[0],
+        District: districts[0],
     }
 
     const formSubmitHandler = (values) => {
@@ -33,24 +38,26 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
         }
         axios.get(`${API.URL}customquery/?start_year=${data.FromYear}&start_month=${data.FromMonth}&end_year=${data.ToYear}&end_month=${data.ToMonth}&district=${data.district}&tablename=${data.DataType}`)
             .then(response => {
-                
                 console.log(response.data);
                 const keyarray = Object.keys(response.data[0]);
                 const columns = keyarray.map(
-                    keys => 
+                    keys =>
                     ({
                         title: keys,
                         dataIndex: keys,
+                        key: keys,
                     })
                 );
-                console.log(columns);
-                const dataSource = response.data.map((row,index) => 
-                    ({...row,key: index+1})
+                const dataSource = response.data.map((row, index) =>
+                    ({ ...row, key: index + 1 })
                 );
-                console.log(dataSource);
-                typeOfDataHandler(data.DataType, response.data, columns, dataSource);
+                const timeLine = response.data.map((row) => {
+                    return `${monthList[row["month"] - 1]}, ${row["year"]}`
+                })
+                typeOfDataHandler(data.DataType, response.data, columns, dataSource, timeLine);
             })
             .catch(err => {
+                console.log('Query Sent Error');
                 console.log(err);
             })
     }
@@ -61,6 +68,7 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
         FromYear: Yup.string().required('Required !'),
         ToMonth: Yup.string().required('Required !'),
         ToYear: Yup.string().required('Required !'),
+        District: Yup.string().required('Required !'),
     });
 
     return (
@@ -68,7 +76,7 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values) => formSubmitHandler(values, typeOfDataHandler)}
-                validationSchema={validationSchema}>
+            >
                 <div>
                     <div className="grid-container-search">
                         <div className="grid-item-search d-flex justify-content-center" >
@@ -98,7 +106,6 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                         </div>
                         <div className="grid-item-search d-flex justify-content-center" >
                             <div style={{ width: "100%" }}>
-
                             </div>
                         </div>
                     </div>
@@ -116,8 +123,8 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
                                     <Field as="select" name="District" className="input-area-1">
-                                        {districts.map(districts =>
-                                            <option key={districts} value={districts}>{districts}</option>)}
+                                        {districts.map(district =>
+                                            <option key={district} value={district}>{district}</option>)}
                                     </Field>
                                     <ErrorMessage name="DataType" />
                                 </div>

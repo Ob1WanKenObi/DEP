@@ -16,33 +16,33 @@ const WhichChart = ({ datasets, legend, timeline, charts }) => {
   const check = charts;
   if (check == 0) {
     return <Barchart
-            dataSet={datasets}
-            legend={legend}
-            timeLine={timeline}
-            width="270"
-            height="240"
-            downloadAsImage={downloadAsImage}
-          />;
+      dataSet={datasets}
+      legend={legend}
+      timeLine={timeline}
+      width={270}
+      height={240}
+      downloadAsImage={downloadAsImage}
+    />;
   }
   else if (check == 1) {
     return <LineChart
-            dataSet={datasets}
-            legend={legend}
-            timeLine={timeline}
-            width="270"
-            height="240"
-            downloadAsImage={downloadAsImage}
-          />;
+      dataSet={datasets}
+      legend={legend}
+      timeLine={timeline}
+      width={270}
+      height={240}
+      downloadAsImage={downloadAsImage}
+    />;
   }
   else if (check == 2) {
     return <Doughnutchart
-            dataSet={datasets}
-            legend={legend}
-            timeLine={timeline}
-            width="270"
-            height="240"
-            downloadAsImage={downloadAsImage}
-          />;
+      dataSet={datasets}
+      legend={legend}
+      timeLine={timeline}
+      width={270}
+      height={240}
+      downloadAsImage={downloadAsImage}
+    />;
   }
   else {
     return <div>F</div>
@@ -61,7 +61,7 @@ const ChooseChart = ({ datasets, legend, timeline, chart }) => {
   return (
     <div>
       <div>
-      <WhichChart  timeline={timeline} datasets={datasets} legend={legend} charts = {chart}/>
+        <WhichChart timeline={timeline} datasets={datasets} legend={legend} charts={chart} />
       </div>
       {/*<Tabs defaultActiveKey="1" onChange={changeHandler} >
         <TabPane key="1" tab="Barchart">

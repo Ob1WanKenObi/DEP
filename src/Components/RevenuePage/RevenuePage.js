@@ -3,103 +3,18 @@ import SearchBar from '../SearchBar/SearchBar';
 import alert from '../../common/images/alert.svg';
 import rupee from '../../common/images/currency-inr.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
+import Loader from '../Loader/loader';
 
 const timeLine = ['January', 'February', 'March', 'April', 'May'];
+const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const dummyLegends = ['gst', 'gst target', 'vat', 'vat target'];
 const dataset = [[3311, 18344, 10334, 19443, 15224],
-                [8311, 17344, 12334, 17443, 19224],
-                [13311, 16344, 14334, 15443, 11224],
-                [18311, 15344, 14334, 15443, 15224],
-                [23311, 14344, 12334, 17443, 17224],
-                [28311, 13344, 10334, 19443, 13224]];
-// const dataSource = [
-//   {
-//     key: '1',
-//     Month: 'January',
-//     d1: '3311',
-//     d2: '8311',
-//     d3: '13311',
-//     d4: '18311',
-//     d5: '23311',
-//     d6: '28311',
-//   },
-//   {
-//     key: '2',
-//     Month: 'February',
-//     d1: '18344',
-//     d2: '17344',
-//     d3: '16344',
-//     d4: '15344',
-//     d5: '14344',
-//     d6: '13344',
-//   },
-//   {
-//     key: '3',
-//     Month: 'March',
-//     d1: '10334',
-//     d2: '12334',
-//     d3: '14334',
-//     d4: '14334',
-//     d5: '12334',
-//     d6: '10334',
-//   },
-//   {
-//     key: '4',
-//     Month: 'April',
-//     d1: '19443',
-//     d2: '17443',
-//     d3: '15443',
-//     d4: '15443',
-//     d5: '17443',
-//     d6: '19443',
-//   },
-//   {
-//     key: '5',
-//     Month: 'May',
-//     d1: '15224',
-//     d2: '19224',
-//     d3: '11224',
-//     d4: '15224',
-//     d5: '17224',
-//     d6: '13224',
-//   },
-// ];
-// const columns = [
-//   {
-//     title: 'Month',
-//     dataIndex: 'Month',
-//     fixed: 'left',
-//   },
-//   {
-//     title: 'Data1',
-//     dataIndex: 'd1',
-//     sorter: (a, b) => a.d1 - b.d1,
-//     sortDirections: ['descend', 'ascend'],
-//   },
-//   {
-//     title: 'Data2',
-//     dataIndex: 'd2',
-//     sorter: (a, b) => a.d2 - b.d2,
-//     sortDirections: ['descend', 'ascend'],
-//   },
-//   {
-//     title: 'Data3',
-//     dataIndex: 'd3',
-//     sorter: (a, b) => a.d3 - b.d3,
-//     sortDirections: ['descend', 'ascend'],
-//   },
-//   {
-//     title: 'Data4',
-//     dataIndex: 'd4',
-//     sorter: (a, b) => a.d4 - b.d4,
-//     sortDirections: ['descend', 'ascend'],
-//   },
-//   {
-//     title: 'Data5',
-//     dataIndex: 'd5',
-//     sorter: (a, b) => a.d5 - b.d5,
-//     sortDirections: ['descend', 'ascend'],
-//   },
-// ];
+[8311, 17344, 12334, 17443, 19224],
+[13311, 16344, 14334, 15443, 11224],
+[18311, 15344, 14334, 15443, 15224],
+[23311, 14344, 12334, 17443, 17224],
+[28311, 13344, 10334, 19443, 13224]];
+
 const DataType = [
   {
     tableName: 'excise_duty_tax',
@@ -125,21 +40,41 @@ const RevenuePage = () => {
   const [showStats, setShowStats] = useState(true);
   const [typeofData, setTypeOfData] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
+  const [fetchedDataset, setFetchedDataset] = useState(null);
+  const [fetchedTimeline, setFetchedTimeline] = useState(null);
+  const [legends, setLegends] = useState(null);
 
   const showStatsHandler = () => {
     setShowStats(false);
   }
 
-  const fetchedDataHandler = (data,column,dataSource) => {
+  const fetchedDataHandler = (data, column, dataSource, timeLine, DataTypeName) => {
     setFetchedData(data);
     setfetchedColumn(column);
     setfetchedDataSource(dataSource);
+    setFetchedTimeline(timeLine);
+    const newArray = column.map(({ title }) => {
+      const columnArray = data.map((row) => {
+        return row[title];
+      });
+      return columnArray;
+    });
+    const legendArray = column.filter(({ title }) => {
+      return title !== 'month' && title !== 'year' && title !== 'district'
+    }).map(({ title }) => title);
+
+    legendArray.push(DataTypeName);
+    newArray.splice(0, 1);
+    newArray.splice(-2, 2);
+    setFetchedDataset(newArray);
+    setLegends(legendArray);
+    setTypeOfData(DataTypeName);
   }
 
-  const dataTypeHandler = (datatype, data,column,dataSource) => {
+  const dataTypeHandler = (datatype, data, column, dataSource, timeLine) => {
     const getDataTypeName = DataType.filter(obj => obj.tableName === datatype)[0].name;
-    setTypeOfData(getDataTypeName);
-    fetchedDataHandler(data,column,dataSource);
+
+    fetchedDataHandler(data, column, dataSource, timeLine, getDataTypeName);
   }
 
   let statistics =
@@ -168,11 +103,11 @@ const RevenuePage = () => {
     <div>
       <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
       {showStats ? statistics :
-        <div className="chart-box">
+        fetchedDataset && legends ? (<div className="chart-box">
           <div>
-            <MultiChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} dataSource={fetchedDataSource} columns={fetchedColumn} />
+            <MultiChart timeline={fetchedTimeline} datasets={fetchedDataset} legend={legends} dataSource={fetchedDataSource} columns={fetchedColumn} />
           </div>
-        </div>}
+        </div>) : <Loader />}
     </div>
   )
 }
