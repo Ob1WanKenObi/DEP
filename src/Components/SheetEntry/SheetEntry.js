@@ -24,8 +24,9 @@ const initialValues = {
 }
 
 const API = {
-    URL: 'http://localhost:8000/excel/',
+    URL: 'http://127.0.0.1:8000/excel/',
     key: 'password',
+
 }
 
 
@@ -47,9 +48,9 @@ const SheetEntry = (props) => {
 
     const handleSample = (event) => {
         const legend2 = event.target.value;
-        if      (legend2 == select3_0[0]) {setSample(test);}
-        else if (legend2 == select3_0[1]) {setSample(test2);}
-        else                            {setSample(bgg);} 
+        if (legend2 == select3_0[0]) { setSample(test); }
+        else if (legend2 == select3_0[1]) { setSample(test2); }
+        else { setSample(bgg); }
     }
 
     const handle3 = (event) => {
@@ -72,7 +73,7 @@ const SheetEntry = (props) => {
         else {
             setactiveselect(select3_5);
         }
-    } 
+    }
 
     const fileChangedHandler = (event) => {
         console.log(event.target.files[0]);
@@ -104,70 +105,70 @@ const SheetEntry = (props) => {
         validationSchema={validationSchema} >
         <Form>
             <div className="sheetentry-main">
-                <div className="sheetentry-minor" style={{background: "linear-gradient(62deg, #ebebeb 0%, #d1d1d1 100%)",backgroundRepeat: 'False'}}>
-                <div>
-                    <h1 className="minor-heading-3">Upload Excel File Here:</h1>
-                </div>
-                    <label htmlFor='legend1' className="label-normal">Data Type</label>
-                <div style={{ display: "inline", overflow: "hidden", display: "flex",flexFlow: "row wrap"}}>
-                    <div  style={{width: "33%"}}>
-                        <Field as="select" id='legend1' name='legend1' className="input-area-2" >
-                            {select1.map(select1 =><option key={select1} value={select1}>{select1}</option>)}
-                        </Field>
-                        <ErrorMessage name='legend1' render={error => 
-                            <div style={{ color: "red"}}>
-                                <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
-                                    {error}
-                                </span>
-                            </div>} 
-                        />
-                    </div>
-                    <div  style={{width: "33%"}}>
-                        <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3} >
-                            {select2.map(select2 =><option key={select2} value={select2}>{select2}</option>)}
-                        </Field>
-                        <ErrorMessage name='legend2' render={error => 
-                            <div style={{ color: "red"}}>
-                                <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
-                                    {error}
-                                </span>
-                            </div>} 
-                        />
-                    </div>
-                    <div  style={{width: "34%"}}>
-                        <Field as="select" id='legend3' name='legend3' className="input-area-2" onClick={handleSample}>
-                            {activeselect.map(activeselect =><option key={activeselect} value={activeselect}>{activeselect}</option>)}
-                        </Field>
-                        <ErrorMessage name='legend3' render={error => 
-                            <div style={{ color: "red"}}>
-                                <span style={{backgroundColor: "white", borderLeft: "4px solid red",  padding: "2px 5px"}}>
-                                    {error}
-                                </span>
-                            </div>} 
-                        />
-                    </div>
-                </div>
-                <div>
-                    <label htmlFor='excel' className="label-normal">Sample Excel File:</label>
+                <div className="sheetentry-minor" style={{ background: "linear-gradient(62deg, #ebebeb 0%, #d1d1d1 100%)", backgroundRepeat: 'False' }}>
                     <div>
-                        <img src={sample} width="100%" height="100px"></img>
+                        <h1 className="minor-heading-3">Upload Excel File Here:</h1>
+                    </div>
+                    <label htmlFor='legend1' className="label-normal">Data Type</label>
+                    <div style={{ display: "inline", overflow: "hidden", display: "flex", flexFlow: "row wrap" }}>
+                        <div style={{ width: "33%" }}>
+                            <Field as="select" id='legend1' name='legend1' className="input-area-2" >
+                                {select1.map(select1 => <option key={select1} value={select1}>{select1}</option>)}
+                            </Field>
+                            <ErrorMessage name='legend1' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
+                        <div style={{ width: "33%" }}>
+                            <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3} >
+                                {select2.map(select2 => <option key={select2} value={select2}>{select2}</option>)}
+                            </Field>
+                            <ErrorMessage name='legend2' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
+                        <div style={{ width: "34%" }}>
+                            <Field as="select" id='legend3' name='legend3' className="input-area-2" onClick={handleSample}>
+                                {activeselect.map(activeselect => <option key={activeselect} value={activeselect}>{activeselect}</option>)}
+                            </Field>
+                            <ErrorMessage name='legend3' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor='excel' className="label-normal">Sample Excel File:</label>
+                        <div>
+                            <img src={sample} width="100%" height="100px"></img>
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor='excel' className="label-normal">Excel</label>
+                        <input type="file"
+                            id='excel'
+                            name='excel'
+                            className="input-area-2"
+                            onChange={fileChangedHandler}
+                            accept=".xlsx,.xls,.csv" />
+                        <span style={{ color: "black", backgroundColor: "#ffffff", borderLeft: "4px solid #252540", padding: "2px 5px" }}>File Format: .csv, Maximum file size: 25mb</span>
+                        {/* <ErrorMessage name='excel' /> */}
+                    </div>
+                    <div className="d-flex justify-content-center">
+                        <button type='submit' className="button-special">SUBMIT</button>
                     </div>
                 </div>
-                <div>
-                    <label htmlFor='excel' className="label-normal">Excel</label>
-                    <input type="file"
-                        id='excel'
-                        name='excel'
-                        className="input-area-2"
-                        onChange={fileChangedHandler}
-                        accept=".xlsx,.xls,.csv" />
-                    <span style={{color: "black", backgroundColor: "#ffffff", borderLeft: "4px solid #252540", padding: "2px 5px"}}>File Format: .csv, Maximum file size: 25mb</span>
-                    {/* <ErrorMessage name='excel' /> */}
-                </div>
-                <div className="d-flex justify-content-center">
-                    <button type='submit' className="button-special">SUBMIT</button>
-                </div>
-            </div>
             </div>
         </Form>
     </Formik >);
