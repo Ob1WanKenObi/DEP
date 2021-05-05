@@ -23,7 +23,8 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
     }
 
     let chartReference = React.createRef();
-    const bgColor = dataSet.map((data, index) => rainbow(dataSet.length, index + 1));
+    const bgColor = ["#fc8662","#fcd181","#b4e874","#76e8c0","#76cce8","#7876e8",];
+    /*dataSet.map((data, index) => rainbow(dataSet.length, index + 1));*/
 
     const chart = (<Bar
         data={{
