@@ -183,7 +183,7 @@ const SheetEntry = (props) => {
                     </div>
                     <div>
                         <label htmlFor='excel' className="label-normal">Sample Excel File:</label>
-                        <div>
+                        <div style={{marginBottom: "10px"}}>
                             <img src={sample} width="100%" height="100px"></img>
                         </div>
                     </div>
@@ -200,7 +200,6 @@ const SheetEntry = (props) => {
                     </div>
                     <div className="d-flex justify-content-center">
                         <button type='submit' className="button-special">SUBMIT</button>
-                        <img src={sample} width="100%" height="100px" style={{margin: "20px 0px",boxShadow: "3px 3px 4px rgba(0, 0, 0, 0.6)"}}></img>
                     </div>
                 </div>
             </div>
