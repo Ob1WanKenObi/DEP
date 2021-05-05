@@ -23,6 +23,10 @@ const DataType = [
     tableName: 'vaccination_data',
     name: 'Vaccination Data',
   },
+  {
+    tableName: 'upgradation_of_infrastructure',
+    name: 'Upgradation of Infrastructure',
+  }
 ];
 
 

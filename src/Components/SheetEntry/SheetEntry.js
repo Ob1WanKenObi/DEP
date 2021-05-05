@@ -23,17 +23,80 @@ import err from '../../common/images/dep_tables/err.png';
 const select1 = ["General Administration", "Development Administration", "Seasonal Work", "Structured Drives and Working"];
 const select2 = ["Revenue", "Court", "Covid", "Healthcare", "Drug Abuse", "Smart Ration"];
 
-const select3_0 = ['Collection of Excise', 'Collection of GST', 'Collection of Motor Vehicle Tax', 'Collection of Stamp Duty'];
-const select3_1 = ['Criminal Court', 'civil_court'];
-const select3_2 = ['Cases', 'Vaccinated', 'Recovered', 'Deaths'];
-const select3_3 = ['Vaccination Data', 'Upgradation of Infrastructure', 'National Health Mission Schemes', 'Sarbat Sehat Bima Yojna (SSBY)'];
-const select3_4 = ['Enforcement of Drug Measures', 'DAPO', "Buddy's Programme", 'De-addiction and Rehabilitation'];
-const select3_5 = ['Distribution of Atta', 'Distribution of Dal'];
+const select3_0 = [
+    {
+        name: 'Collection of Excise',
+        tableName: 'excise_duty_tax'
+    },
+    {
+        name: 'Collection of GST',
+        tableName: 'gst'
+    },
+    {
+        name: 'Collection of Motor Vehicle Tax',
+        tableName: 'motor_vehicle_tax',
+    },
+    {
+        name: 'Collection of Stamp Duty',
+        tableName: 'stamp_tax',
+    },
+];
+
+const select3_1 = [
+    {
+        name: 'Criminal Court',
+        tableName: 'criminal_court',
+    },
+    {
+        name: 'Civil Court',
+        tableName: 'civil_court',
+    }
+];
+
+const select3_2 = [
+    {
+        name: 'Covid-19 Data',
+        tableName: 'covid',
+    },
+];
+
+const select3_3 = [
+    {
+        name: 'Vaccination Data',
+        tableName: 'vaccination_data',
+    },
+    {
+        name: 'Upgradation of Infrastructure',
+        tableName: 'upgradation_of_infrastructure',
+    },
+];
+
+const select3_4 = [
+    {
+        name: 'Enforcement of Drug Measures',
+        tableName: 'enforcement_of_drug_measures',
+    },
+    {
+        name: 'De-addiction and Rehabilitation',
+        tableName: 'rehabilation',
+    },
+];
+
+const select3_5 = [
+    {
+        name: 'Distribution of Atta',
+        tableName: 'distribution_of_atta',
+    },
+    {
+        name: "Distribution of Dal",
+        tableName: 'distribution_of_dal',
+    },
+];
 
 const initialValues = {
     legend1: 'General Administration',
     legend2: 'Revenue',
-    legend3: 'Collection of Excise',
+    legend3: 'excise_duty_tax',
 }
 
 const API = {
@@ -61,27 +124,20 @@ const SheetEntry = (props) => {
 
     const handleSample = (event) => {
         const checking = event.target.value;
-        if      (checking == select3_0[0]) {setSample(revenue_excise);}
-        else if (checking == select3_0[1]) {setSample(revenue_gst);}
-        else if (checking == select3_0[2]) {setSample(revenue_motor);}
-        else if (checking == select3_0[3]) {setSample(revenue_stamp);}
-        else if (checking == select3_1[0]) {setSample(court_criminal);}
-        else if (checking == select3_1[1]) {setSample(court_cases);}
-        else if (checking == select3_2[0]) {setSample(covid);}
-        else if (checking == select3_2[1]) {setSample(covid);}
-        else if (checking == select3_2[2]) {setSample(covid);}
-        else if (checking == select3_2[3]) {setSample(covid);}
-        else if (checking == select3_3[0]) {setSample(vaccination);}
-        else if (checking == select3_3[1]) {setSample(healthcare_1);}
-        else if (checking == select3_3[2]) {setSample(vaccination);}
-        else if (checking == select3_3[3]) {setSample(vaccination);}
-        else if (checking == select3_4[0]) {setSample(drug_abuse);}
-        else if (checking == select3_4[1]) {setSample(drug_abuse2);}
-        else if (checking == select3_4[2]) {setSample(drug_abuse2);}
-        else if (checking == select3_4[3]) {setSample(drug_abuse2);}
-        else if (checking == select3_5[0]) {setSample(ration_atta);}
-        else if (checking == select3_5[1]) {setSample(ration_dal);}
-        else                              {setSample(err);} 
+        if (checking == select3_0[0].tableName) { setSample(revenue_excise); }
+        else if (checking == select3_0[1].tableName) { setSample(revenue_gst); }
+        else if (checking == select3_0[2].tableName) { setSample(revenue_motor); }
+        else if (checking == select3_0[3].tableName) { setSample(revenue_stamp); }
+        else if (checking == select3_1[0].tableName) { setSample(court_criminal); }
+        else if (checking == select3_1[1].tableName) { setSample(court_cases); }
+        else if (checking == select3_2[0].tableName) { setSample(covid); }
+        else if (checking == select3_3[0].tableName) { setSample(vaccination); }
+        else if (checking == select3_3[1].tableName) { setSample(healthcare_1); } //
+        else if (checking == select3_4[0].tableName) { setSample(drug_abuse); } //
+        else if (checking == select3_4[1].tableName) { setSample(drug_abuse2); } //
+        else if (checking == select3_5[0].tableName) { setSample(ration_atta); }
+        else if (checking == select3_5[1].tableName) { setSample(ration_dal); }
+        else { setSample(err); }
     }
 
     const handle3 = (event) => {
@@ -105,7 +161,7 @@ const SheetEntry = (props) => {
             setactiveselect(select3_5);
         }
         handleSample(event);
-    } 
+    }
 
     const fileChangedHandler = (event) => {
         console.log(event.target.files[0]);
@@ -169,7 +225,7 @@ const SheetEntry = (props) => {
                         </div>
                         <div style={{ width: "34%" }}>
                             <Field as="select" id='legend3' name='legend3' className="input-area-2" onClick={handleSample}>
-                                {activeselect.map(activeselect => <option key={activeselect} value={activeselect}>{activeselect}</option>)}
+                                {activeselect.map(({ name, tableName }) => <option key={name} value={tableName}>{name}</option>)}
                             </Field>
                             <ErrorMessage name='legend3' render={error =>
                                 <div style={{ color: "red" }}>
@@ -180,28 +236,28 @@ const SheetEntry = (props) => {
                             />
                         </div>
                     </div>
-                    <div style={{marginTop: "30px"}}>
+                    <div style={{ marginTop: "30px" }}>
                         <label htmlFor='excel' className="label-normal">Sample .CSV File:</label>
-                        <div style={{marginBottom: "10px", boxShadow: "4px 4px 4px rgba(0,0,0,0.3)"}}>
+                        <div style={{ marginBottom: "10px", boxShadow: "4px 4px 4px rgba(0,0,0,0.3)" }}>
                             <img src={sample} width="100%" height="100px"></img>
                         </div>
-                        <div style={{width: "70%", backgroundColor: "#ffffff"}}>
+                        <div style={{ width: "70%", backgroundColor: "#ffffff" }}>
                             <span style={{ color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
                                 Please ensure that the first row of the document contains the Column names.
                             </span>
                         </div>
-                        <div style={{width: "70%", backgroundColor: "#ffffff"}}>
-                            <span style={{  color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
+                        <div style={{ width: "70%", backgroundColor: "#ffffff" }}>
+                            <span style={{ color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
                                 The folloing rows should contain the data as specified in the sample file.
                             </span>
                         </div>
-                        <div style={{width: "70%", backgroundColor: "#ffffff"}}>
-                            <span style={{  color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
+                        <div style={{ width: "70%", backgroundColor: "#ffffff" }}>
+                            <span style={{ color: "black", borderLeft: "4px solid #252540", padding: "2px 5px" }}>
                                 Make sure there aren't any other cells filled in the document.
                             </span>
                         </div>
                     </div>
-                    <div style={{marginTop: "30px"}}>
+                    <div style={{ marginTop: "30px" }}>
                         <label htmlFor='excel' className="label-normal">Upload .CSV File</label>
                         <input type="file"
                             id='excel'
