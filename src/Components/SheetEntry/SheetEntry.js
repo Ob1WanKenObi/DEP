@@ -24,7 +24,7 @@ const select1 = ["General Administration", "Development Administration", "Season
 const select2 = ["Revenue", "Court", "Covid", "Healthcare", "Drug Abuse", "Smart Ration"];
 
 const select3_0 = ['Collection of Excise', 'Collection of GST', 'Collection of Motor Vehicle Tax', 'Collection of Stamp Duty'];
-const select3_1 = ['Pending Cases', 'Cases pending beyond one year', 'E-court Management'];
+const select3_1 = ['Criminal Court', 'Civil Court'];
 const select3_2 = ['Cases', 'Vaccinated', 'Recovered', 'Deaths'];
 const select3_3 = ['Vaccination Data', 'Upgradation of Infrastructure', 'National Health Mission Schemes', 'Sarbat Sehat Bima Yojna (SSBY)'];
 const select3_4 = ['Enforcement of Drug Measures', 'DAPO', "Buddy's Programme", 'De-addiction and Rehabilitation'];
@@ -65,9 +65,8 @@ const SheetEntry = (props) => {
         else if (checking == select3_0[1]) {setSample(revenue_gst);}
         else if (checking == select3_0[2]) {setSample(revenue_motor);}
         else if (checking == select3_0[3]) {setSample(revenue_stamp);}
-        else if (checking == select3_1[0]) {setSample(court_cases);}
+        else if (checking == select3_1[0]) {setSample(court_criminal);}
         else if (checking == select3_1[1]) {setSample(court_cases);}
-        else if (checking == select3_1[2]) {setSample(court_cases);}
         else if (checking == select3_2[0]) {setSample(covid);}
         else if (checking == select3_2[1]) {setSample(covid);}
         else if (checking == select3_2[2]) {setSample(covid);}
@@ -183,7 +182,7 @@ const SheetEntry = (props) => {
                     </div>
                     <div>
                         <label htmlFor='excel' className="label-normal">Sample Excel File:</label>
-                        <div>
+                        <div style={{marginBottom: "10px", boxShadow: "4px 4px 4px rgba(0,0,0,0.3)"}}>
                             <img src={sample} width="100%" height="100px"></img>
                         </div>
                     </div>
@@ -200,7 +199,6 @@ const SheetEntry = (props) => {
                     </div>
                     <div className="d-flex justify-content-center">
                         <button type='submit' className="button-special">SUBMIT</button>
-                        <img src={sample} width="100%" height="100px" style={{margin: "20px 0px",boxShadow: "3px 3px 4px rgba(0, 0, 0, 0.6)"}}></img>
                     </div>
                 </div>
             </div>
