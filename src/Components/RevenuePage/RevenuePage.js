@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SearchBar from '../SearchBar/SearchBar';
 import alert from '../../common/images/alert.svg';
 import rupee from '../../common/images/currency-inr.svg';
+import linechart from '../../common/images/linechart.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
 import Loader from '../Loader/loader';
 
@@ -92,8 +93,8 @@ const RevenuePage = () => {
         <div className="search-data-data"><span><img src={rupee} className="mx-2" />21,02,64,000</span></div>
       </div>
       <div className="grid-item-datasearch-2" style={{ backgroundColor: "#7aba20" }}>
-        <div className="search-data-heading">Percentage collected by far</div>
-        <div className="search-data-data"><span><img src={alert} className="mx-2" />26%</span></div>
+        <div className="search-data-heading">Percentage collected so far</div>
+        <div className="search-data-data"><span><img src={linechart} className="mx-2" />26%</span></div>
       </div>
     </div>
 
