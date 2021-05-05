@@ -42,6 +42,7 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
         width={width}
         ref={chartReference}
         options={{
+            responsive: false,
             maintainAspectRatio: false,
             scales: {
                 yAxes: [{

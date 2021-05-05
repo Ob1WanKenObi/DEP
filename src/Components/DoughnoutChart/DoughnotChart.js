@@ -41,6 +41,7 @@ const DoughnutChart = ({ timeLine, legend, dataSet, height, width, downloadAsIma
         ref={chartReference}
         options={
             {
+                responsive: false,
                 maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
