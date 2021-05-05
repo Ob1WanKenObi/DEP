@@ -3,9 +3,22 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { message } from 'antd';
 import * as Yup from 'yup';
 import axios from 'axios';
-import bgg from '../../common/images/signin.svg';
-import test from '../../common/images/test.jpg';
-import test2 from '../../common/images/test2.webp';
+
+import court_cases from '../../common/images/dep_tables/court_cases.png';
+import court_criminal from '../../common/images/dep_tables/court_criminal.png';
+import covid from '../../common/images/dep_tables/covid.png';
+import drug_abuse from '../../common/images/dep_tables/drug_abuse.png';
+import drug_abuse2 from '../../common/images/dep_tables/drug_abuse2.png';
+import healthcare_1 from '../../common/images/dep_tables/healthcare_1.png';
+import ration_atta from '../../common/images/dep_tables/ration_atta.png';
+import ration_dal from '../../common/images/dep_tables/ration_dal.png';
+import revenue_excise from '../../common/images/dep_tables/revenue_excise.png';
+import revenue_gst from '../../common/images/dep_tables/revenue_gst.png';
+import revenue_motor from '../../common/images/dep_tables/revenue_motor.png';
+import revenue_stamp from '../../common/images/dep_tables/revenue_stamp.png';
+import vaccination from '../../common/images/dep_tables/vaccination.png';
+import err from '../../common/images/dep_tables/error.png';
+
 
 const select1 = ["General Administration", "Development Administration", "Seasonal Work", "Structured Drives and Working"];
 const select2 = ["Revenue", "Court", "Covid", "Healthcare", "Drug Abuse", "Smart Ration"];
@@ -44,13 +57,32 @@ const SheetEntry = (props) => {
 
     const [selectedFile, setSelectedFile] = useState(null);
 
-    const [sample, setSample] = useState(bgg);
+    const [sample, setSample] = useState(revenue_excise);
 
     const handleSample = (event) => {
-        const legend2 = event.target.value;
-        if (legend2 == select3_0[0]) { setSample(test); }
-        else if (legend2 == select3_0[1]) { setSample(test2); }
-        else { setSample(bgg); }
+        const checking = event.target.value;
+        if      (checking == select3_0[0]) {setSample(revenue_excise);}
+        else if (checking == select3_0[1]) {setSample(revenue_gst);}
+        else if (checking == select3_0[2]) {setSample(revenue_motor);}
+        else if (checking == select3_0[3]) {setSample(revenue_stamp);}
+        else if (checking == select3_1[0]) {setSample(court_cases);}
+        else if (checking == select3_1[1]) {setSample(court_cases);}
+        else if (checking == select3_1[2]) {setSample(court_cases);}
+        else if (checking == select3_2[0]) {setSample(covid);}
+        else if (checking == select3_2[1]) {setSample(covid);}
+        else if (checking == select3_2[2]) {setSample(covid);}
+        else if (checking == select3_2[3]) {setSample(covid);}
+        else if (checking == select3_3[0]) {setSample(vaccination);}
+        else if (checking == select3_3[1]) {setSample(healthcare_1);}
+        else if (checking == select3_3[2]) {setSample(vaccination);}
+        else if (checking == select3_3[3]) {setSample(vaccination);}
+        else if (checking == select3_4[0]) {setSample(drug_abuse);}
+        else if (checking == select3_4[1]) {setSample(drug_abuse2);}
+        else if (checking == select3_4[2]) {setSample(drug_abuse2);}
+        else if (checking == select3_4[3]) {setSample(drug_abuse2);}
+        else if (checking == select3_5[0]) {setSample(ration_atta);}
+        else if (checking == select3_5[1]) {setSample(ration_dal);}
+        else                              {setSample(err);} 
     }
 
     const handle3 = (event) => {
@@ -73,7 +105,8 @@ const SheetEntry = (props) => {
         else {
             setactiveselect(select3_5);
         }
-    }
+        handleSample(event);
+    } 
 
     const fileChangedHandler = (event) => {
         console.log(event.target.files[0]);
@@ -167,6 +200,7 @@ const SheetEntry = (props) => {
                     </div>
                     <div className="d-flex justify-content-center">
                         <button type='submit' className="button-special">SUBMIT</button>
+                        <img src={sample} width="100%" height="100px" style={{margin: "20px 0px",boxShadow: "3px 3px 4px rgba(0, 0, 0, 0.6)"}}></img>
                     </div>
                 </div>
             </div>
