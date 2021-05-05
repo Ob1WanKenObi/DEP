@@ -24,7 +24,7 @@ const select1 = ["General Administration", "Development Administration", "Season
 const select2 = ["Revenue", "Court", "Covid", "Healthcare", "Drug Abuse", "Smart Ration"];
 
 const select3_0 = ['Collection of Excise', 'Collection of GST', 'Collection of Motor Vehicle Tax', 'Collection of Stamp Duty'];
-const select3_1 = ['Criminal Court', 'Civil Court'];
+const select3_1 = ['Criminal Court', 'civil_court'];
 const select3_2 = ['Cases', 'Vaccinated', 'Recovered', 'Deaths'];
 const select3_3 = ['Vaccination Data', 'Upgradation of Infrastructure', 'National Health Mission Schemes', 'Sarbat Sehat Bima Yojna (SSBY)'];
 const select3_4 = ['Enforcement of Drug Measures', 'DAPO', "Buddy's Programme", 'De-addiction and Rehabilitation'];
@@ -116,7 +116,7 @@ const SheetEntry = (props) => {
         //Axios post request to API Endpoint
         var formData = new FormData();
         formData.append("sheet", selectedFile);
-        formData.append("title", values.legend);
+        formData.append("title", values.legend3);
         console.log(formData.getAll('sheet'));
         console.log(formData.getAll('title'));
         axios.post(API.URL, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
