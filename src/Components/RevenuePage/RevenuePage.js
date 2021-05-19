@@ -58,6 +58,7 @@ const RevenuePage = () => {
     newArray.splice(0, 1);
     newArray.splice(-2, 2);
     setFetchedDataset(newArray);
+    console.log('Legends Array', legendArray);
     setLegends(legendArray);
     setTypeOfData(DataTypeName);
   }
