@@ -11,7 +11,7 @@ import err from '../../common/images/dep_tables/plzselect.png';
 const select2 = ["Contact Testing", "Daywise Positivity Report", "Death Data"];
 
 const API = {
-    URL: 'http://127.0.0.1:8000/excel/',
+    URL: 'http://127.0.0.1:8000/',
 }
 
 const initialValues = {
@@ -24,7 +24,7 @@ const validationSchema = Yup.object({
 });
 
 const SheetEntry = (props) => {
-    const [disable2, setdisable2] = useState(true);
+    const [disable2, setdisable2] = useState(false);
     const [activeselect, setactiveselect] = useState(0);
 
     const [selectedFile, setSelectedFile] = useState(null);
@@ -34,11 +34,11 @@ const SheetEntry = (props) => {
     const handle3 = (event) => {
         const check = event.target.value;
         if (check == select2[0]) {
-            setdisable2(true);
+            setdisable2(false);
             setSample(contact);
         }
         else if (check == select2[1]) {
-            setdisable2(false);
+            setdisable2(true);
             setSample(post);
         }
         else {
@@ -56,7 +56,11 @@ const SheetEntry = (props) => {
         formData.append("sheet", selectedFile);
         formData.append("title", values.legend);
         formData.append("title", values.date);
-        axios.post(API.URL, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        const queryURL = API.URL;
+        if (values.legend == 'Daywise Positivity Report') {
+            queryURL = queryURL + 'positivity/'
+        }
+        axios.post(queryURL, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then(res => {
                 console.log(res.data);
                 message.success("File Uploaded !");
@@ -80,31 +84,31 @@ const SheetEntry = (props) => {
                             <h1 className="minor-heading-3">Upload Excel (.Csv) File for COVID-19 Here:</h1>
                         </div>
                         <label htmlFor='legend' className="label-normal">Data Type</label>
-                    <div className="d-flex justify-content-around">
-                        <div style={{ width: "50%" }}>
-                            <Field as="select" id='legend' name='legend' className="input-area-2" onClick={handle3} >
-                                {select2.map(select2 => <option key={select2} value={select2}>{select2}</option>)}
-                            </Field>
-                            <ErrorMessage name='legend' render={error =>
-                                <div style={{ color: "red" }}>
-                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
-                                        {error}
-                                    </span>
-                                </div>}
-                            />
-                        </div>
-                        <div style={{ width: "50%" }}>
-                            <Field type="date" id='date' name='date' className="input-area-2" hidden={disable2} />
-                            <ErrorMessage name='date' render={error =>
-                                <div style={{ color: "red" }}>
-                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
-                                        {error}
-                                    </span>
-                                </div>}
-                            />
-                        </div>
+                        <div className="d-flex justify-content-around">
+                            <div style={{ width: "50%" }}>
+                                <Field as="select" id='legend' name='legend' className="input-area-2" onClick={handle3} >
+                                    {select2.map(select2 => <option key={select2} value={select2}>{select2}</option>)}
+                                </Field>
+                                <ErrorMessage name='legend' render={error =>
+                                    <div style={{ color: "red" }}>
+                                        <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                            {error}
+                                        </span>
+                                    </div>}
+                                />
+                            </div>
+                            <div style={{ width: "50%" }}>
+                                <Field type="date" id='date' name='date' className="input-area-2" hidden={disable2} />
+                                <ErrorMessage name='date' render={error =>
+                                    <div style={{ color: "red" }}>
+                                        <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                            {error}
+                                        </span>
+                                    </div>}
+                                />
+                            </div>
 
-                    </div>
+                        </div>
                         <div style={{ marginTop: "30px" }}>
                             <label htmlFor='excel' className="label-normal">Sample .CSV File:</label>
                             <div style={{ marginBottom: "10px", boxShadow: "4px 4px 4px rgba(0,0,0,0.3)" }}>

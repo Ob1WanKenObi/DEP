@@ -14,8 +14,9 @@ const LineChart = ({ timeLine, legend, dataSet, height, width, downloadAsImage }
                         label: legend,
                         data: dataSet,
                         borderWidth: 1,
-                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgb(75, 192, 192)',
                         lineTension: 0,
+                        fill: false,
                     }
                 ]
             }
@@ -31,9 +32,27 @@ const LineChart = ({ timeLine, legend, dataSet, height, width, downloadAsImage }
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0)",
                         }
-                    }]
+
+                    }],
+                    xAxes: [
+                        {
+                            gridLines: {
+                                color: "rgba(0, 0, 0, 0)",
+                            }
+                        }
+                    ]
                 },
+                legend: {
+                    usePointStyle: true,
+                    labels: {
+                        boxWidth: 0,
+                    },
+                    display: false,
+                }
 
             }
         }
@@ -45,8 +64,9 @@ const LineChart = ({ timeLine, legend, dataSet, height, width, downloadAsImage }
 
     const final = (
         <>
-            <Button onClick={download}>Download Chart</Button>
-            { chart}
+            <h5 className='my-2'>{legend}</h5>
+            {chart}
+            <Button className='my-2' onClick={download}>Download Chart</Button>
         </>
     );
 
