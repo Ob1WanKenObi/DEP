@@ -1,26 +1,16 @@
 import React, { useState } from 'react'
-import { Statistic } from 'antd'
 import SearchBar from '../SearchBar/SearchBar';
-import AllChart from '../AllChart/AllChart';
 import linechart from '../../common/images/linechart.svg';
 import alert from '../../common/images/alert.svg';
 import cross from '../../common/images/cross.svg';
 import needle from '../../common/images/needle.svg';
-import virus from '../../common/images/virus-outline.svg';
-import skull from '../../common/images/skull.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
+import Loader from '../Loader/loader';
 
-const timeLine = ['January', 'February', 'March', 'April', 'May'];
-const dataset = [[3311, 16344, 12334, 19443, 15224],
-[8311, 16344, 12334, 19443, 15224],
-[13311, 16344, 12334, 19443, 15224],
-[18311, 16344, 12334, 19443, 15224],
-[23311, 16344, 12334, 19443, 15224],
-[28311, 16344, 12334, 19443, 15224]];
 
 const DataType = [
   {
-    tableName: 'enforcement of drug measures',
+    tableName: 'enforcement_of_drug_measures',
     name: 'Enforcement of Drug Measures',
   },
   {
@@ -30,37 +20,47 @@ const DataType = [
 ];
 
 const DrugPage = () => {
-  //const DataType = ['Enforcement of Drug Measures', 'DAPO', "Buddy's Programme", 'De-addiction and Rehabilitation'];
   const [fetchedColumn, setfetchedColumn] = useState(null);
   const [fetchedDataSource, setfetchedDataSource] = useState(null);
   const [showStats, setShowStats] = useState(true);
   const [typeofData, setTypeOfData] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedDataset, setFetchedDataset] = useState(null);
+  const [fetchedTimeline, setFetchedTimeline] = useState(null);
+  const [legends, setLegends] = useState(null);
 
 
   const showStatsHandler = () => {
     setShowStats(false);
   }
 
-  const fetchedDataHandler = (data, column, dataSource) => {
+  const fetchedDataHandler = (data, column, dataSource, timeLine, DataTypeName) => {
     setFetchedData(data);
     setfetchedColumn(column);
     setfetchedDataSource(dataSource);
+    setFetchedTimeline(timeLine);
     const newArray = column.map(({ title }) => {
       const columnArray = data.map((row) => {
         return row[title];
       });
       return columnArray;
     });
-    console.log('TwoDEEARRAY', newArray);
+    const legendArray = column.filter(({ title }) => {
+      return title !== 'month' && title !== 'year' && title !== 'district'
+    }).map(({ title }) => title);
+
+    legendArray.push(DataTypeName);
+    newArray.splice(0, 1);
+    newArray.splice(-2, 2);
     setFetchedDataset(newArray);
+    setLegends(legendArray);
+    setTypeOfData(DataTypeName);
   }
 
-  const dataTypeHandler = (datatype, data, column, dataSource) => {
+  const dataTypeHandler = (datatype, data, column, dataSource, timeLine) => {
     const getDataTypeName = DataType.filter(obj => obj.tableName === datatype)[0].name;
-    setTypeOfData(getDataTypeName);
-    fetchedDataHandler(data, column, dataSource);
+
+    fetchedDataHandler(data, column, dataSource, timeLine, getDataTypeName);
   }
 
   let statistics =
@@ -97,11 +97,11 @@ const DrugPage = () => {
     <div>
       <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
       {showStats ? statistics :
-        <div className="chart-box">
+        fetchedDataset && legends ? (<div className="chart-box">
           <div>
-            <MultiChart timeline={timeLine} datasets={dataset} legend={`${typeofData} per month`} dataSource={fetchedDataSource} columns={fetchedColumn} />
+            <MultiChart timeline={fetchedTimeline} datasets={fetchedDataset} legend={legends} dataSource={fetchedDataSource} columns={fetchedColumn} />
           </div>
-        </div>}
+        </div>) : <Loader />}
     </div>
   )
 }

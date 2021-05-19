@@ -48,12 +48,13 @@ const CourtPage = () => {
       return title !== 'month' && title !== 'year' && title !== 'district'
     }).map(({ title }) => title);
 
-    console.log('Courts 2-D Array', newArray);
-    console.log('Courts Legends Array', legendArray);
-
+    console.log('Courts 2-D Array before', newArray);
+    console.log('Courts Legends Array before', legendArray);
     legendArray.push(DataTypeName);
     newArray.splice(0, 1);
     newArray.splice(-2, 2);
+    console.log('Courts 2-D Array', newArray);
+    console.log('Courts Legends Array', legendArray);
     setFetchedDataset(newArray);
     setLegends(legendArray);
     setTypeOfData(DataTypeName);

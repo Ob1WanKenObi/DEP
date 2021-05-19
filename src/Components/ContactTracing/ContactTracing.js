@@ -5,26 +5,8 @@ import linechart from '../../common/images/linechart.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
 import Loader from '../Loader/loader';
 
-const DataType = [
-    {
-        tableName: 'excise_duty_tax',
-        name: 'Collection of Excise',
-    },
-    {
-        tableName: 'gst',
-        name: 'Collection of GST',
-    },
-    {
-        tableName: 'motor_vehicle_tax',
-        name: 'Collection of Motor Vehicle Tax',
-    },
-    {
-        tableName: 'stamp_duty',
-        name: 'Collection of Stamp Duty',
-    }
-];
 
-const RevenuePage = () => {
+const ContactTracing = () => {
     const [fetchedColumn, setfetchedColumn] = useState(null);
     const [fetchedDataSource, setfetchedDataSource] = useState(null);
     const [showStats, setShowStats] = useState(true);
@@ -101,5 +83,5 @@ const RevenuePage = () => {
     )
 }
 
-export default RevenuePage;
+export default ContactTracing;
 

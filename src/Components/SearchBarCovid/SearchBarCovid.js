@@ -44,7 +44,7 @@ const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
                     ({ ...row, key: index + 1 })
                 );
                 const timeLine = response.data.map((row) => {
-                    return `${monthList[row["month"] - 1]}, ${row["year"]}`
+                    return `${monthList[row["Month"] - 1]}, ${row["Year"]}`
                 })
                 typeOfDataHandler(data.DataType, response.data, columns, dataSource, timeLine);
             })
