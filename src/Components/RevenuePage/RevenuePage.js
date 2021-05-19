@@ -6,15 +6,6 @@ import linechart from '../../common/images/linechart.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
 import Loader from '../Loader/loader';
 
-const timeLine = ['January', 'February', 'March', 'April', 'May'];
-const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const dummyLegends = ['gst', 'gst target', 'vat', 'vat target'];
-const dataset = [[3311, 18344, 10334, 19443, 15224],
-[8311, 17344, 12334, 17443, 19224],
-[13311, 16344, 14334, 15443, 11224],
-[18311, 15344, 14334, 15443, 15224],
-[23311, 14344, 12334, 17443, 17224],
-[28311, 13344, 10334, 19443, 13224]];
 
 const DataType = [
   {

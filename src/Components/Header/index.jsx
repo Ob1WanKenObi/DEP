@@ -14,7 +14,7 @@ const Header = () => {
                 </h3>
                 <HeaderLinks>
                     <div className="nick-name">
-                        Sparsh
+
                     </div>
                 </HeaderLinks>
             </Wrapper>
