@@ -4,24 +4,49 @@ import { message } from 'antd';
 import * as Yup from 'yup';
 import axios from 'axios';
 
+import post from '../../common/images/dep_tables/positivity.png';
+import contact from '../../common/images/dep_tables/contact.png';
+import err from '../../common/images/dep_tables/plzselect.png';
 
-
+const select2 = ["Contact Testing", "Daywise Positivity Report", "Death Data"];
 
 const API = {
     URL: 'http://127.0.0.1:8000/excel/',
 }
 
+const initialValues = {
+    legend2: 'Revenue',
+    legend3: 'excise_duty_tax',
+}
 
-
+const validationSchema = Yup.object({
+    legend1: Yup.string().required('Required !'),
+    legend2: Yup.string().required('Required !'),
+    legend3: Yup.string().required('Required !'),
+});
 
 const SheetEntry = (props) => {
-
-    const [activeselect, setactiveselect] = useState(null);
+    const [disable2, setdisable2] = useState(true);
+    const [activeselect, setactiveselect] = useState(0);
 
     const [selectedFile, setSelectedFile] = useState(null);
 
-    const [sample, setSample] = useState(revenue_excise);
+    const [sample, setSample] = useState(contact);
 
+    const handle3 = (event) => {
+        const check = event.target.value;
+        if (check == select2[0]) {
+            setdisable2(true);
+            setSample(contact);
+        }
+        else if (check == select2[1]) {
+            setdisable2(false);
+            setSample(post);
+        }
+        else {
+            setdisable2(err);
+        }
+    }
 
     const fileChangedHandler = (event) => {
         console.log(event.target.files[0]);
@@ -53,12 +78,34 @@ const SheetEntry = (props) => {
                 <div className="sheetentry-main">
                     <div className="sheetentry-minor" style={{ background: "linear-gradient(62deg, #ebebeb 0%, #d1d1d1 100%)", backgroundRepeat: 'False' }}>
                         <div>
-                            <h1 className="minor-heading-3">Upload Excel (.Csv) File Here:</h1>
+                            <h1 className="minor-heading-3">Upload Excel (.Csv) File for COVID-19 Here:</h1>
                         </div>
                         <label htmlFor='legend1' className="label-normal">Data Type</label>
-                        <div style={{ display: "inline", overflow: "hidden", display: "flex", flexFlow: "row wrap" }}>
-
+                    <div className="d-flex justify-content-around">
+                        <div style={{ width: "50%" }}>
+                            <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3} >
+                                {select2.map(select2 => <option key={select2} value={select2}>{select2}</option>)}
+                            </Field>
+                            <ErrorMessage name='legend2' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
                         </div>
+                        <div style={{ width: "50%" }}>
+                            <Field type="date" id='legend3' name='legend3' className="input-area-2" hidden={disable2} />
+                            <ErrorMessage name='legend3' render={error =>
+                                <div style={{ color: "red" }}>
+                                    <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
+                                        {error}
+                                    </span>
+                                </div>}
+                            />
+                        </div>
+
+                    </div>
                         <div style={{ marginTop: "30px" }}>
                             <label htmlFor='excel' className="label-normal">Sample .CSV File:</label>
                             <div style={{ marginBottom: "10px", boxShadow: "4px 4px 4px rgba(0,0,0,0.3)" }}>
