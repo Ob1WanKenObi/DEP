@@ -54,11 +54,14 @@ const SheetEntry = (props) => {
     const formSubmitHandler = (values) => {
         var formData = new FormData();
         formData.append("sheet", selectedFile);
-        formData.append("title", values.legend);
-        formData.append("title", values.date);
         const queryURL = API.URL;
         if (values.legend == 'Daywise Positivity Report') {
             queryURL = queryURL + 'positivity/'
+            formData.append('title', 'positivity_report')
+        }
+        else if (values.legend == 'Contact Testing') {
+            queryURL = queryURL + 'excel/'
+            formData.append('title', 'contact_tracing')
         }
         axios.post(queryURL, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then(res => {

@@ -3,37 +3,8 @@ import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-const monthList = ['Ropar'];
 const subDivision = ['Ropar', 'Chamkaur Sahib', 'Anandpur Sahib', 'Morinda', 'Nangal']
 const districts = ["Ropar"];
-
-const testData =
-    [
-        {
-            "date": "2021-03-24",
-            "ropar sample": 230,
-            "ropar positive": 32,
-            "ropar positivity": 12.23,
-        },
-        {
-            "date": "2021-03-25",
-            "ropar sample": 383,
-            "ropar positive": 29,
-            "ropar positivity": 9.23,
-        },
-        {
-            "date": "2021-03-26",
-            "ropar sample": 414,
-            "ropar positive": 33,
-            "ropar positivity": 9.73,
-        },
-        {
-            "date": "2021-03-27",
-            "ropar sample": 345,
-            "ropar positive": 12,
-            "ropar positivity": 3.23,
-        }
-    ];
 
 const API = {
     URL: 'http://127.0.0.1:8000/',
@@ -56,6 +27,9 @@ const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
             SubDivision: values.SubDivision,
         }
         console.log(data)
+        if (apiURL == 'tracingquery' && values.SubDivision == 'Ropar') {
+            data.SubDivision = 'Rupnagar'
+        }
         axios.get(`${API.URL}${apiURL}/?start_date=${data.StartDate}&end_date=${data.EndDate}&district=${data.District}&SubDivision=${data.SubDivision}`)
             .then(response => {
                 console.log(response.data);
