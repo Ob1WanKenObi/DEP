@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Redirect, Link } from 'react-router-dom';
 import bgg from '../../common/images/signin.svg';
 import {LoginOutlined} from '@ant-design/icons';
+import Header from '../Header/index';
 
 
 const initialValues = {
@@ -66,13 +67,14 @@ const LogIn = () => {
 
     return (
         isLogin === true ? <Redirect to="/homepage" /> : <div>
+            <Header />
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values) => formSubmitHandler(values)}
                 validationSchema={validationSchema}>
                 <Form>
-                    <div className="login-main" style={{background: `linear-gradient(45deg, #b5ffdb 0%, #ffffff 50%,#ffd1a6 100%)`}}> {/*`url(${bgg}) no-repeat center center fixed`*/}
-                        <div style={{padding: "3%", border: "2px solid black",borderRadius: "10px", width: "40%", marginLeft: "30%", marginTop: "0px", boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" }}>
+                    <div className="login-main" style={{background: `url(${bgg}) no-repeat center center fixed`}}> {/*`linear-gradient(45deg, #b5ffdb 0%, #ffffff 50%,#ffd1a6 100%)`*/}
+                        <div style={{padding: "3%", border: "2px solid black",borderRadius: "10px", width: "40%", marginLeft: "33%", marginTop: "0px", boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" }}>
                             <h2 className="minor-heading-3">Log in to use the website</h2>
 
                             <div>
