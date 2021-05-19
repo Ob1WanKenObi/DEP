@@ -14,7 +14,7 @@ const DataType = [
     name: 'Enforcement of Drug Measures',
   },
   {
-    tableName: 'rehabilation',
+    tableName: 'rehabilition',
     name: 'De-addiction and Rehabilitation',
   },
 ];
@@ -49,9 +49,17 @@ const DrugPage = () => {
       return title !== 'month' && title !== 'year' && title !== 'district'
     }).map(({ title }) => title);
 
-    legendArray.push(DataTypeName);
+
     newArray.splice(0, 1);
     newArray.splice(-2, 2);
+    if (DataTypeName === 'Enforcement of Drug Measures') {
+      newArray.splice(0, 1);
+      newArray.splice(-1, 1);
+      legendArray.splice(0, 1);
+      legendArray.splice(-1, 1);
+
+    }
+    legendArray.push(DataTypeName);
     setFetchedDataset(newArray);
     setLegends(legendArray);
     setTypeOfData(DataTypeName);

@@ -14,15 +14,15 @@ const MultiCharts = ({ datasets, legend, timeline, dataSource, columns }) => {
     const changeHandler = (key) => { };
     const listData1 = datasets.map((datasets, index) =>
         <div className="multi-chart-grid-item" key={index}>
-            <ChooseChart timeline={timeline} datasets={datasets} legend={legend[index+1]} chart={1} />
+            <ChooseChart timeline={timeline} datasets={datasets} legend={legend[index + 1]} chart={1} />
         </div>);
     const listData0 = datasets.map((datasets, index) =>
         <div className="multi-chart-grid-item" key={index}>
-            <ChooseChart timeline={timeline} datasets={datasets} legend={legend[index+1]} chart={0} />
+            <ChooseChart timeline={timeline} datasets={datasets} legend={legend[index + 1]} chart={0} />
         </div>);
     const listData2 = datasets.map((datasets, index) =>
         <div className="multi-chart-grid-item" key={index}>
-            <ChooseChart timeline={timeline} datasets={datasets} legend={legend[index+1]} chart={2} />
+            <ChooseChart timeline={timeline} datasets={datasets} legend={legend[index + 1]} chart={2} />
         </div>);
 
     return (

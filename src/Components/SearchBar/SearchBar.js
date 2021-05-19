@@ -56,12 +56,6 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                 const timeLine = response.data.map((row) => {
                     return `${monthList[row["Month"] - 1]}, ${row["Year"]}`
                 });
-
-                console.log('DataType', data.DataType);
-                console.log('Data', response.data);
-                console.log('Column', columns);
-                console.log('DataSource', dataSource);
-                console.log('TimeLine', timeLine);
                 typeOfDataHandler(data.DataType, response.data, columns, dataSource, timeLine);
             })
             .catch(err => {
