@@ -73,7 +73,7 @@ const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
                     ({ ...row, key: index + 1 })
                 );
                 const timeLine = response.data.map((row) => {
-                    return `${row["date"]}`
+                    return `${row["Date"]}`
                 })
                 typeOfDataHandler(response.data, columns, dataSource, timeLine);
             })
