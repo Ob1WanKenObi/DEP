@@ -36,7 +36,6 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
             ToYear: values.ToYear,
             district: values.District,
         }
-        console.log(values);
         axios.get(`${API.URL}customquery/?start_year=${data.FromYear}&start_month=${data.FromMonth}&end_year=${data.ToYear}&end_month=${data.ToMonth}&district=${data.district}&tablename=${data.DataType}`)
             .then(response => {
                 console.log(response.data);
@@ -56,6 +55,11 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                 const timeLine = response.data.map((row) => {
                     return `${monthList[row["month"] - 1]}, ${row["year"]}`
                 })
+                console.log('DataType', data.DataType);
+                console.log('Data', response.data);
+                console.log('Colum', columns);
+                console.log('DataSource', dataSource);
+                console.log('TimeLine', timeLine);
                 typeOfDataHandler(data.DataType, response.data, columns, dataSource, timeLine);
             })
             .catch(err => {

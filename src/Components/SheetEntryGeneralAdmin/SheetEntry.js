@@ -19,7 +19,7 @@ import vaccination from '../../common/images/dep_tables/vaccination.png';
 import err from '../../common/images/dep_tables/err.png';
 
 
-const select2 = ["Revenue", "Court", "Covid", "Healthcare", "Drug Abuse", "Smart Ration"];
+const select2 = ["Revenue", "Court", "Healthcare", "Drug Abuse", "Smart Ration"];
 
 const select3_0 = [
     {
@@ -49,13 +49,6 @@ const select3_1 = [
         name: 'Civil Court',
         tableName: 'civil_court',
     }
-];
-
-const select3_2 = [
-    {
-        name: 'Covid-19 Data',
-        tableName: 'covid',
-    },
 ];
 
 const select3_3 = [
@@ -126,7 +119,6 @@ const SheetEntry = (props) => {
         else if (checking == select3_0[3].tableName) { setSample(revenue_stamp); }
         else if (checking == select3_1[0].tableName) { setSample(court_criminal); }
         else if (checking == select3_1[1].tableName) { setSample(court_cases); }
-        else if (checking == select3_2[0].tableName) { setSample(covid); }
         else if (checking == select3_3[0].tableName) { setSample(vaccination); }
         else if (checking == select3_3[1].tableName) { setSample(healthcare_1); } //
         else if (checking == select3_4[0].tableName) { setSample(drug_abuse); } //
