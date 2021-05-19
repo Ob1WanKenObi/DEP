@@ -6,33 +6,33 @@ import MultiChart from '../MultiCharts/MultiCharts';
 import Loader from '../Loader/loader';
 
 
-const testData = 
-[
-    {
-        "date": "2021-03-24",
-        "ropar sample": 230,
-        "ropar positive": 32,
-        "ropar positivity" : 12.23,
-    },
-    {
-        "date": "2021-03-25",
-        "ropar sample": 383,
-        "ropar positive": 29,
-        "ropar positivity" : 9.23,
-    },
-    {
-        "date": "2021-03-26",
-        "ropar sample": 414,
-        "ropar positive": 33,
-        "ropar positivity" : 9.73,
-    },
-    {
-        "date": "2021-03-27",
-        "ropar sample": 345,
-        "ropar positive": 12,
-        "ropar positivity" : 3.23,
-    }
-];
+const testData =
+    [
+        {
+            "date": "2021-03-24",
+            "ropar sample": 230,
+            "ropar positive": 32,
+            "ropar positivity": 12.23,
+        },
+        {
+            "date": "2021-03-25",
+            "ropar sample": 383,
+            "ropar positive": 29,
+            "ropar positivity": 9.23,
+        },
+        {
+            "date": "2021-03-26",
+            "ropar sample": 414,
+            "ropar positive": 33,
+            "ropar positivity": 9.73,
+        },
+        {
+            "date": "2021-03-27",
+            "ropar sample": 345,
+            "ropar positive": 12,
+            "ropar positivity": 3.23,
+        }
+    ];
 
 const ContactTracing = () => {
     const [fetchedColumn, setfetchedColumn] = useState(null);
@@ -64,7 +64,7 @@ const ContactTracing = () => {
         }).map(({ title }) => title);
 
         legendArray.push("Contact Tracing");
-        newArray.splice(0, 1);
+        newArray.splice(0, 2);
         setFetchedDataset(newArray);
         setLegends(legendArray);
         //setTypeOfData(DataTypeName);
@@ -99,7 +99,7 @@ const ContactTracing = () => {
 
     return (
         <div>
-            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
+            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} apiURL='tracingquery' /></div>
             {showStats ? statistics :
                 fetchedDataset && legends ? (<div className="chart-box">
                     <div>
