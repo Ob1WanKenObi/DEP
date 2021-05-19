@@ -1,6 +1,6 @@
 import { Tabs } from "antd";
 import rupee from '../../common/images/currency-inr.svg';
-import RevenuePage from '../RevenuePage/RevenuePage';
+import Positivity from '../positivity/positivity';
 import ContactTracing from '../ContactTracing/ContactTracing';
 
 const { TabPane } = Tabs;
@@ -27,12 +27,12 @@ export const CoronaVirus = () => {
                     </TabPane>
                     <TabPane key="2" tab={<StyledTab>Covid Positivity</StyledTab>}>
                         <div>
-                            <RevenuePage />
+                            <Positivity />
                         </div>
                     </TabPane>
                     <TabPane key="3" tab={<StyledTab>Deaths</StyledTab>}>
                         <div>
-                            <RevenuePage />
+                            <ContactTracing />
                         </div>
                     </TabPane>
                 </Tabs>

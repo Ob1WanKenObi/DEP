@@ -15,14 +15,12 @@ const API = {
 }
 
 const initialValues = {
-    legend2: 'Revenue',
-    legend3: 'excise_duty_tax',
+    legend: 'Contact Testing',
+    date: '',
 }
 
 const validationSchema = Yup.object({
-    legend1: Yup.string().required('Required !'),
-    legend2: Yup.string().required('Required !'),
-    legend3: Yup.string().required('Required !'),
+    legend: Yup.string().required('Required !'),
 });
 
 const SheetEntry = (props) => {
@@ -56,7 +54,8 @@ const SheetEntry = (props) => {
     const formSubmitHandler = (values) => {
         var formData = new FormData();
         formData.append("sheet", selectedFile);
-        formData.append("title", values.legend3);
+        formData.append("title", values.legend);
+        formData.append("title", values.date);
         axios.post(API.URL, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then(res => {
                 console.log(res.data);
@@ -80,13 +79,13 @@ const SheetEntry = (props) => {
                         <div>
                             <h1 className="minor-heading-3">Upload Excel (.Csv) File for COVID-19 Here:</h1>
                         </div>
-                        <label htmlFor='legend1' className="label-normal">Data Type</label>
+                        <label htmlFor='legend' className="label-normal">Data Type</label>
                     <div className="d-flex justify-content-around">
                         <div style={{ width: "50%" }}>
-                            <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3} >
+                            <Field as="select" id='legend' name='legend' className="input-area-2" onClick={handle3} >
                                 {select2.map(select2 => <option key={select2} value={select2}>{select2}</option>)}
                             </Field>
-                            <ErrorMessage name='legend2' render={error =>
+                            <ErrorMessage name='legend' render={error =>
                                 <div style={{ color: "red" }}>
                                     <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
                                         {error}
@@ -95,8 +94,8 @@ const SheetEntry = (props) => {
                             />
                         </div>
                         <div style={{ width: "50%" }}>
-                            <Field type="date" id='legend3' name='legend3' className="input-area-2" hidden={disable2} />
-                            <ErrorMessage name='legend3' render={error =>
+                            <Field type="date" id='date' name='date' className="input-area-2" hidden={disable2} />
+                            <ErrorMessage name='date' render={error =>
                                 <div style={{ color: "red" }}>
                                     <span style={{ backgroundColor: "white", borderLeft: "4px solid red", padding: "2px 5px" }}>
                                         {error}
