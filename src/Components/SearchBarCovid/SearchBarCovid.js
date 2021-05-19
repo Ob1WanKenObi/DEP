@@ -6,6 +6,35 @@ import axios from 'axios';
 const monthList = ['Ropar'];
 const subDivision = ['Ropar', 'Chamkaur Sahib', 'Anandpur Sahib', 'Morinda', 'Nangal']
 const districts = ["Ropar"];
+
+const testData = 
+[
+    {
+        "date": "2021-03-24",
+        "ropar sample": 230,
+        "ropar positive": 32,
+        "ropar positivity" : 12.23,
+    },
+    {
+        "date": "2021-03-25",
+        "ropar sample": 383,
+        "ropar positive": 29,
+        "ropar positivity" : 9.23,
+    },
+    {
+        "date": "2021-03-26",
+        "ropar sample": 414,
+        "ropar positive": 33,
+        "ropar positivity" : 9.73,
+    },
+    {
+        "date": "2021-03-27",
+        "ropar sample": 345,
+        "ropar positive": 12,
+        "ropar positivity" : 3.23,
+    }
+];
+
 const API = {
     URL: 'http://127.0.0.1:8000/',
 }
@@ -27,7 +56,7 @@ const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
             SubDivision: values.SubDivision,
         }
         console.log(data)
-        axios.get(`${API.URL}customquery/?start_date=${data.StartDate}&end_date=${data.EndDate}&district=${data.District}&subdivision=${data.SubDivision}`)
+        {/*axios.get(`${API.URL}customquery/?start_date=${data.StartDate}&end_date=${data.EndDate}&district=${data.District}&subdivision=${data.SubDivision}`)
             .then(response => {
                 console.log(response.data);
                 const keyarray = Object.keys(response.data[0]);
@@ -44,14 +73,31 @@ const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
                     ({ ...row, key: index + 1 })
                 );
                 const timeLine = response.data.map((row) => {
-                    return `${monthList[row["Month"] - 1]}, ${row["Year"]}`
+                    return `${row["date"]}`
                 })
-                typeOfDataHandler(data.DataType, response.data, columns, dataSource, timeLine);
+                typeOfDataHandler( response.data, columns, dataSource, timeLine);
             })
             .catch(err => {
                 console.log('Query Sent Error');
                 console.log(err);
-            })
+            })*/}
+            const keyarray = Object.keys(testData[0]);
+                const columns = keyarray.map(
+                    keys =>
+                    ({
+                        title: keys,
+                        dataIndex: keys,
+                        key: keys,
+                        width: '20%',
+                    })
+                );
+                const dataSource = testData.map((row, index) =>
+                    ({ ...row, key: index + 1 })
+                );
+                const timeLine = testData.map((row) => {
+                    return `${row["date"]}`
+                })
+                typeOfDataHandler(testData, columns, dataSource, timeLine);
     }
 
     const validationSchema = Yup.object({
