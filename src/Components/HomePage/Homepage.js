@@ -4,6 +4,7 @@ import admin from '../../common/images/admin.png';
 import dev from '../../common/images/dev.png';
 import seasonal from '../../common/images/seasonal.png';
 import structure from '../../common/images/structure.png';
+import covid from '../../common/images/covid19.png';
 
 class HomePage extends Component {
 
@@ -17,22 +18,10 @@ class HomePage extends Component {
                         <img src={admin} alt="General Administration" style={{ width: "180px", height: "180px", marginTop: "10px" }}></img>
                     </div>
                 </Link>
-                <Link to={"/dev-administration"}>
+                <Link to={"/covid"}>
                     <div className="grid-item-home" style={{ backgroundColor: "#d2b6fa" }}>
-                        <div>Development Administration</div>
-                        <img src={dev} alt="Development Administration" style={{ width: "220px", height: "180px", marginTop: "10px" }}></img>
-                    </div>
-                </Link>
-                <Link to={"/seasonal"}>
-                    <div className="grid-item-home" style={{ backgroundColor: "#d2b6fa" }}>
-                        <div>Seasonal Work</div>
-                        <img src={seasonal} alt="Seasonal work" style={{ width: "180px", height: "180px", marginTop: "10px" }}></img>
-                    </div>
-                </Link>
-                <Link to={"/drives-working"} >
-                    <div className="grid-item-home" style={{ backgroundColor: "#b5f5f4" }}>
-                        <div>Structured Drivers and Working</div>
-                        <img src={structure} alt="Structured Drivers and Working" style={{ width: "180px", height: "180px", marginTop: "10px" }}></img>
+                        <div>Covid-19</div>
+                        <img src={covid} alt="Covid-19" style={{ width: "220px", height: "180px", marginTop: "10px" }}></img>
                     </div>
                 </Link>
             </div >

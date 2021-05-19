@@ -39,11 +39,6 @@ export const GeneralAdmin = () => {
                             <CourtPage />
                         </div>
                     </TabPane>
-                    <TabPane key="3" tab={<StyledTab><img src={covidIcon} className="mx-2" />Covid</StyledTab>}>
-                        <div>
-                            <Covidpage />
-                        </div>
-                    </TabPane>
                     <TabPane key="4" tab={<StyledTab><img src={cross} className="mx-2" />Healthcare</StyledTab>}>
                         <div>
                             <HealthcarePage />

@@ -22,25 +22,34 @@ const resources = [
         link: '/general-administration',
     },
     {
-        name: 'Development Administration',
-        link: '/dev-administration',
-    },
-    {
-        name: 'Seasonal Work',
-        link: '/seasonal',
-    },
-    {
-        name: 'Structured Drives and Working',
-        link: '/drives-working',
-    },
+        name: 'Covid-19',
+        link: '/covid',
+    }
+    // {
+    //     name: 'Development Administration',
+    //     link: '/dev-administration',
+    // },
+    // {
+    //     name: 'Seasonal Work',
+    //     link: '/seasonal',
+    // },
+    // {
+    //     name: 'Structured Drives and Working',
+    //     link: '/drives-working',
+    // },
 ];
 const modules = [
 
     {
-        name: 'Upload Excel file',
+        name: 'Upload General Administration Data',
         link: '/upload-sheet',
         items: 0,
     },
+    {
+        name: 'Upload Covid-19 Data',
+        link: '/upload-sheet-covid',
+        items: 0,
+    }
 
 ];
 
