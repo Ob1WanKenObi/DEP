@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import SearchBar from '../SearchBar/SearchBar';
-import alert from '../../common/images/alert.svg';
 import rupee from '../../common/images/currency-inr.svg';
 import linechart from '../../common/images/linechart.svg';
 import MultiChart from '../MultiCharts/MultiCharts';

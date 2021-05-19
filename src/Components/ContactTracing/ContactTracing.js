@@ -5,6 +5,7 @@ import linechart from '../../common/images/linechart.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
 import Loader from '../Loader/loader';
 
+
 const testData = 
 [
     {
