@@ -5,33 +5,6 @@ import linechart from '../../common/images/linechart.svg';
 import MultiChart from '../MultiCharts/MultiCharts';
 import Loader from '../Loader/loader';
 
-const testData = 
-[
-    {
-        "date": "2021-03-24",
-        "ropar sample": 230,
-        "ropar positive": 32,
-        "ropar positivity" : 12.23,
-    },
-    {
-        "date": "2021-03-25",
-        "ropar sample": 383,
-        "ropar positive": 29,
-        "ropar positivity" : 9.23,
-    },
-    {
-        "date": "2021-03-26",
-        "ropar sample": 414,
-        "ropar positive": 33,
-        "ropar positivity" : 9.73,
-    },
-    {
-        "date": "2021-03-27",
-        "ropar sample": 345,
-        "ropar positive": 12,
-        "ropar positivity" : 3.23,
-    }
-];
 
 const Positivity = () => {
     const [fetchedColumn, setfetchedColumn] = useState(null);
@@ -66,14 +39,12 @@ const Positivity = () => {
         newArray.splice(0, 1);
         setFetchedDataset(newArray);
         setLegends(legendArray);
-        //setTypeOfData(DataTypeName);
     }
 
     const dataTypeHandler = (data, column, dataSource, timeLine) => {
-        //const getDataTypeName = DataType.filter(obj => obj.tableName === datatype)[0].name;
         fetchedDataHandler(data, column, dataSource, timeLine);
     }
-    
+
     let statistics =
         <div className="grid-container-datasearch-2" style={{ gridTemplateColumns: "2fr 2fr" }}>
             <div className="grid-item-datasearch-2" style={{ backgroundColor: "#7aba20" }}>
@@ -98,7 +69,7 @@ const Positivity = () => {
 
     return (
         <div>
-            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
+            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} apiURL='positivityquery' /></div>
             {showStats ? statistics :
                 fetchedDataset && legends ? (<div className="chart-box">
                     <div>

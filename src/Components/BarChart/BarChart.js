@@ -23,8 +23,8 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
     }
 
     let chartReference = React.createRef();
-    const bgColor = ["#fc8662","#fcd181","#b4e874","#76e8c0","#76cce8","#7876e8",];
-    /*dataSet.map((data, index) => rainbow(dataSet.length, index + 1));*/
+    // const bgColor = ["#fc8662", "#fcd181", "#b4e874", "#76e8c0", "#76cce8", "#7876e8",];
+    const bgColor = dataSet.map((data, index) => rainbow(dataSet.length, index + 1));
 
     const chart = (<Bar
         data={{
@@ -34,7 +34,7 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
                     label: legend,
                     data: dataSet,
                     borderWidth: 1,
-                    backgroundColor: bgColor,
+                    backgroundColor: '#77b9e6',
                 }
             ]
         }}
@@ -48,9 +48,28 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
                     }
-                }]
+
+                }],
+                xAxes: [
+                    {
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0)",
+                        }
+                    }
+                ]
+            },
+            legend: {
+                usePointStyle: true,
+                labels: {
+                    boxWidth: 0,
+                },
+                display: false,
             }
+
         }} />);
 
     const download = () => {
@@ -60,8 +79,9 @@ const BarChart = ({ timeLine, dataSet, legend, height, width, downloadAsImage })
 
     const final = (
         <>
-            <Button onClick={download}>Download Chart</Button>
+            <h5 className='my-2'>{legend}</h5>
             {chart}
+            <Button className='my-2' onClick={download}>Download Chart</Button>
         </>
     )
 
