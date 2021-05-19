@@ -16,10 +16,10 @@ import revenue_gst from '../../common/images/dep_tables/revenue_gst.png';
 import revenue_motor from '../../common/images/dep_tables/revenue_motor.png';
 import revenue_stamp from '../../common/images/dep_tables/revenue_stamp.png';
 import vaccination from '../../common/images/dep_tables/vaccination.png';
-import err from '../../common/images/dep_tables/err.png';
+import err from '../../common/images/dep_tables/plzselect.png';
 
 
-const select2 = ["Revenue", "Court", "Covid", "Healthcare", "Drug Abuse", "Smart Ration"];
+const select2 = ["Revenue", "Court", "Healthcare", "Drug Abuse", "Smart Ration"];
 
 const select3_0 = [
     {
@@ -126,7 +126,6 @@ const SheetEntry = (props) => {
         else if (checking == select3_0[3].tableName) { setSample(revenue_stamp); }
         else if (checking == select3_1[0].tableName) { setSample(court_criminal); }
         else if (checking == select3_1[1].tableName) { setSample(court_cases); }
-        else if (checking == select3_2[0].tableName) { setSample(covid); }
         else if (checking == select3_3[0].tableName) { setSample(vaccination); }
         else if (checking == select3_3[1].tableName) { setSample(healthcare_1); } //
         else if (checking == select3_4[0].tableName) { setSample(drug_abuse); } //
@@ -145,12 +144,9 @@ const SheetEntry = (props) => {
             setactiveselect(select3_1);
         }
         else if (check == select2[2]) {
-            setactiveselect(select3_2);
-        }
-        else if (check == select2[3]) {
             setactiveselect(select3_3);
         }
-        else if (check == select2[4]) {
+        else if (check == select2[3]) {
             setactiveselect(select3_4);
         }
         else {
@@ -195,7 +191,7 @@ const SheetEntry = (props) => {
                     </div>
                     <label htmlFor='legend1' className="label-normal">Data Type</label>
                     <div className="d-flex justify-content-around">
-                        <div style={{ width: "40%" }}>
+                        <div style={{ width: "50%" }}>
                             <Field as="select" id='legend2' name='legend2' className="input-area-2" onClick={handle3} >
                                 {select2.map(select2 => <option key={select2} value={select2}>{select2}</option>)}
                             </Field>
@@ -207,7 +203,7 @@ const SheetEntry = (props) => {
                                 </div>}
                             />
                         </div>
-                        <div style={{ width: "40%" }}>
+                        <div style={{ width: "50%" }}>
                             <Field as="select" id='legend3' name='legend3' className="input-area-2" onClick={handleSample}>
                                 {activeselect.map(({ name, tableName }) => <option key={name} value={tableName}>{name}</option>)}
                             </Field>
