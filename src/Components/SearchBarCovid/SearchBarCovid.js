@@ -3,7 +3,7 @@ import { Formik, ErrorMessage, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-const subDivision = ['Ropar', 'Chamkaur Sahib', 'Anandpur Sahib', 'Morinda', 'Nangal']
+const subDivision = ['Ropar', 'Chamkaur Sahib', 'Anandpur Sahib', 'Morinda', 'Nangal', 'Cumulative']
 const districts = ["Ropar"];
 
 const API = {
