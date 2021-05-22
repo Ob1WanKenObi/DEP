@@ -19,6 +19,9 @@ const Positivity = () => {
     const showStatsHandler = () => {
         setShowStats(false);
     }
+    const resetHandler = () => {
+        setShowStats(true);
+    }
 
     const fetchedDataHandler = (data, column, dataSource, timeLine) => {
         setFetchedData(data);
@@ -69,7 +72,7 @@ const Positivity = () => {
 
     return (
         <div>
-            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} apiURL='positivityquery' /></div>
+            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} apiURL='positivityquery' resetHandler={resetHandler} /></div>
             {showStats ? statistics :
                 fetchedDataset && legends ? (<div className="chart-box">
                     <div>

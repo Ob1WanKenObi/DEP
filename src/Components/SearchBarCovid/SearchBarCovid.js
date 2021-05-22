@@ -10,7 +10,7 @@ const API = {
     URL: 'http://127.0.0.1:8000/',
 }
 
-const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
+const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL, resetHandler }) => {
     const initialValues = {
         StartDate: '',
         EndDate: '',
@@ -148,7 +148,7 @@ const SearchBar = ({ statsoffaHandler, typeOfDataHandler, apiURL }) => {
                             </div>
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
-                                    <button className="button-search" >
+                                    <button className="button-search" onClick={resetHandler} >
                                         Reset
                                 </button>
                                 </div>

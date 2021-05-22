@@ -16,7 +16,7 @@ const API = {
     URL: 'http://127.0.0.1:8000/',
 }
 
-const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
+const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler, resetHandler }) => {
     const initialValues = {
         DataType: Datatypes[0].tableName,
         FromMonth: 1,
@@ -168,7 +168,7 @@ const SearchBar = ({ Datatypes, statsoffaHandler, typeOfDataHandler }) => {
                             </div>
                             <div className="grid-item-search d-flex justify-content-center" >
                                 <div style={{ width: "100%" }}>
-                                    <button className="button-search" >
+                                    <button className="button-search" onClick={resetHandler} >
                                         Reset
                                 </button>
                                 </div>

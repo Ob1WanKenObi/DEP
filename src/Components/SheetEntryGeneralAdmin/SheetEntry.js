@@ -175,7 +175,7 @@ const SheetEntry = (props) => {
     let finalView = (<Formik
         initialValues={initialValues}
         onSubmit={(values) => formSubmitHandler(values)}
-        validationSchema={validationSchema} >
+    >
         <Form>
             <div className="sheetentry-main">
                 <div className="sheetentry-minor" style={{ background: "linear-gradient(62deg, #ebebeb 0%, #d1d1d1 100%)", backgroundRepeat: 'False' }}>

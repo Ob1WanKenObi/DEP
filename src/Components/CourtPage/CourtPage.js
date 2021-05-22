@@ -33,6 +33,10 @@ const CourtPage = () => {
     setShowStats(false);
   }
 
+  const resetHandler = () => {
+    setShowStats(true);
+  }
+
   const fetchedDataHandler = (data, column, dataSource, timeLine, DataTypeName) => {
     setFetchedData(data);
     setfetchedColumn(column);
@@ -47,14 +51,9 @@ const CourtPage = () => {
     const legendArray = column.filter(({ title }) => {
       return title !== 'month' && title !== 'year' && title !== 'district'
     }).map(({ title }) => title);
-
-    console.log('Courts 2-D Array before', newArray);
-    console.log('Courts Legends Array before', legendArray);
     legendArray.push(DataTypeName);
     newArray.splice(0, 1);
     newArray.splice(-2, 2);
-    console.log('Courts 2-D Array', newArray);
-    console.log('Courts Legends Array', legendArray);
     setFetchedDataset(newArray);
     setLegends(legendArray);
     setTypeOfData(DataTypeName);
@@ -89,7 +88,7 @@ const CourtPage = () => {
 
   return (
     <div>
-      <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
+      <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} resetHandler={resetHandler} /></div>
       {showStats ? statistics :
         fetchedDataset && legends ? (<div className="chart-box">
           <div>

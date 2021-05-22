@@ -39,6 +39,10 @@ const RevenuePage = () => {
     setShowStats(false);
   }
 
+  const resetHandler = () => {
+    setShowStats(true);
+  }
+
   const fetchedDataHandler = (data, column, dataSource, timeLine, DataTypeName) => {
     setFetchedData(data);
     setfetchedColumn(column);
@@ -93,7 +97,7 @@ const RevenuePage = () => {
 
   return (
     <div>
-      <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} /></div>
+      <div><SearchBar Datatypes={DataType} statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} resetHandler={resetHandler} /></div>
       {showStats ? statistics :
         fetchedDataset && legends ? (<div className="chart-box">
           <div>

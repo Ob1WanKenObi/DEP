@@ -24,7 +24,7 @@ const validationSchema = Yup.object({
 });
 
 const SheetEntry = (props) => {
-    const [disable2, setdisable2] = useState(false);
+    const [disable2, setdisable2] = useState(true);
     const [activeselect, setactiveselect] = useState(0);
 
     const [selectedFile, setSelectedFile] = useState(null);
@@ -34,7 +34,7 @@ const SheetEntry = (props) => {
     const handle3 = (event) => {
         const check = event.target.value;
         if (check == select2[0]) {
-            setdisable2(false);
+            setdisable2(true);
             setSample(contact);
         }
         else if (check == select2[1]) {
@@ -54,14 +54,11 @@ const SheetEntry = (props) => {
     const formSubmitHandler = (values) => {
         var formData = new FormData();
         formData.append("sheet", selectedFile);
+        formData.append("title", values.legend);
+        formData.append("title", values.date);
         const queryURL = API.URL;
         if (values.legend == 'Daywise Positivity Report') {
             queryURL = queryURL + 'positivity/'
-            formData.append('title', 'positivity_report')
-        }
-        else if (values.legend == 'Contact Testing') {
-            queryURL = queryURL + 'excel/'
-            formData.append('title', 'contact_tracing')
         }
         axios.post(queryURL, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then(res => {

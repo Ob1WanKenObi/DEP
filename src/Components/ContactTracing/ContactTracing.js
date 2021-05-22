@@ -47,6 +47,9 @@ const ContactTracing = () => {
     const showStatsHandler = () => {
         setShowStats(false);
     }
+    const resetHandler = () => {
+        setShowStats(true);
+    }
 
     const fetchedDataHandler = (data, column, dataSource, timeLine) => {
         setFetchedData(data);
@@ -67,7 +70,6 @@ const ContactTracing = () => {
         newArray.splice(0, 2);
         setFetchedDataset(newArray);
         setLegends(legendArray);
-        //setTypeOfData(DataTypeName);
     }
 
     const dataTypeHandler = (data, column, dataSource, timeLine) => {
@@ -99,7 +101,7 @@ const ContactTracing = () => {
 
     return (
         <div>
-            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} apiURL='tracingquery' /></div>
+            <div><SearchBar statsoffaHandler={showStatsHandler} typeOfDataHandler={dataTypeHandler} apiURL='tracingquery' resetHandler={resetHandler} /></div>
             {showStats ? statistics :
                 fetchedDataset && legends ? (<div className="chart-box">
                     <div>
